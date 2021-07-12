@@ -10,5 +10,5 @@
 		  </li>
 		</ul>
     </div>
-	  &copy; 2020 <a href="#">Psd to Html Expert</a>. All Rights Reserved.
+	  &copy; 2021 <a href="#">School Management System</a>. All Rights Reserved.
   </footer>

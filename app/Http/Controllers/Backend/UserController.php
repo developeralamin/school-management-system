@@ -72,7 +72,7 @@ class UserController extends Controller
   	   $user->delete();
 
   	   Toastr::success('User Successfully Delete :)' ,'Success');
-      return redirect()->route('user.view');
+       return redirect()->route('user.view');
   }
 
 

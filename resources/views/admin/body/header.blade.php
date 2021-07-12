@@ -101,10 +101,16 @@
 			</ul>
 		  </li>	
 		  
+  @php
+    $user=DB::table('users')->where('id',Auth::user()->id)->first();
+  @endphp
+
 	      <!-- User Account-->
           <li class="dropdown user user-menu">	
 			<a href="#" class="waves-effect waves-light rounded dropdown-toggle p-0" data-toggle="dropdown" title="User">
-				<img src="{{ asset('backend/images/avatar/1.jpg') }}" alt="">
+				<img class="rounded-circle"
+	   src="{{ (!empty($user->image))? url('uploads/user_image/'.$user->image):url('uploads/no_image.jpg') }}" alt="User Avatar">
+
 			</a>
 			<ul class="dropdown-menu animated flipInX">
 			  <li class="user-body">
