@@ -48,6 +48,8 @@ Route::prefix('profile')->group(function (){
 Route::get('/view',[PorfileController::class,'ViewProfile'])->name('profile.view');
 Route::get('/edit',[PorfileController::class,'EditProfile'])->name('profile.edit');
 Route::post('/store',[PorfileController::class,'StoreProfile'])->name('profile.store');
+Route::get('/password/view',[PorfileController::class,'PasswordView'])->name('password.view');
+Route::post('/password/update',[PorfileController::class,'PasswordUpdate'])->name('password.update');
 
 
 });

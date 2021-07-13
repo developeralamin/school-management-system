@@ -43,6 +43,11 @@
             </div>
             <input type="email" id="email"  name="email" class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Email">
         </div>
+
+        @error('email')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
     </div>
 
 <div class="form-group">
@@ -52,6 +57,11 @@
         </div>
         <input type="password" id="password" name="password" class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Password">
     </div>
+
+       @error('password')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
 </div>
 
 

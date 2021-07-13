@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class PorfileController extends Controller
 {
@@ -66,7 +67,33 @@ class PorfileController extends Controller
 
 	   }  //end method
        
+     
+     public function PasswordView()
+     {
+     	return view('backend.users.edit_password');
+     }
 
+
+     public function PasswordUpdate(Request $request)
+     {
+     	   $validata = $request->validate([
+	    	'oldpassword'  => 'required',
+	        'password'     => 'required|confirmed',
+	    ]);	
+
+     	   $haspassword = Auth::user()->password;
+
+     	if(Hash::check($request->oldpassword,$haspassword)){
+     	  	 $user = User::find(Auth::id());
+     	  	 $user->password = Hash::make($request->password);
+     	  	 $user->save();
+     	  	 Auth::logout();
+     	  	 return redirect()->route('login');
+     	  }
+     	  else{
+     	  	 return redirect()->back();
+     	  }
+     }
 
 
 }
