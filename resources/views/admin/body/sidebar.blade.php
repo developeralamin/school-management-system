@@ -35,19 +35,21 @@ $route  = Route::current()->getName();
           </a>
         </li>  
 		
-  <li class="treeview {{ ($prefix == '/users')?'active' : '' }}">
-    <a href="#">
-      <i data-feather="message-circle"></i>
-      <span>Manage User</span>
-      <span class="pull-right-container">
-        <i class="fa fa-angle-right pull-right"></i>
-      </span>
-    </a>
-    <ul class="treeview-menu">
-      <li><a href="{{ route('user.view') }}"><i class="ti-more"></i>View User</a></li>
-      <li><a href="{{ route('user.add') }}"><i class="ti-more"></i>Add User</a></li>
-    </ul>
-  </li> 
+      <li class="treeview {{ ($prefix == '/users')?'active' : '' }}">
+
+        <a href="#">
+          <i data-feather="message-circle"></i>
+          <span>Manage User</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ route('user.view') }}"><i class="ti-more"></i>View User</a></li>
+          <li><a href="{{ route('user.add') }}"><i class="ti-more"></i>Add User</a></li>
+        </ul>
+
+      </li> 
 		  
         <li class="treeview {{ ($prefix == '/profile')?'active' : '' }}">
           <a href="#">
@@ -67,30 +69,28 @@ $route  = Route::current()->getName();
 		 
         <li class="header nav-small-cap">User Interface</li>
 		  
-        <li class="treeview">
+        <li class="treeview {{ ($prefix == '/setups')?'active' : '' }}">
           <a href="#">
             <i data-feather="grid"></i>
-            <span>Components</span>
+            <span>Setup Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="components_alerts.html"><i class="ti-more"></i>Alerts</a></li>
-            <li><a href="components_badges.html"><i class="ti-more"></i>Badge</a></li>
-            <li><a href="components_buttons.html"><i class="ti-more"></i>Buttons</a></li>
-            <li><a href="components_sliders.html"><i class="ti-more"></i>Sliders</a></li>
-            <li><a href="components_dropdown.html"><i class="ti-more"></i>Dropdown</a></li>
-            <li><a href="components_modals.html"><i class="ti-more"></i>Modal</a></li>
-            <li><a href="components_nestable.html"><i class="ti-more"></i>Nestable</a></li>
-            <li><a href="components_progress_bars.html"><i class="ti-more"></i>Progress Bars</a></li>
-          </ul>
-        </li>
+  <ul class="treeview-menu">
+    <li><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
+    <li><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Student Year</a></li>
+    <li><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Student Group</a></li>
+    <li><a href="components_sliders.html"><i class="ti-more"></i>Student Shift</a></li>
+   
+  </ul>
+       
+    </li>
 		
 		<li class="treeview">
           <a href="#">
             <i data-feather="credit-card"></i>
-            <span>Cards</span>
+            <span>Student Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -105,7 +105,7 @@ $route  = Route::current()->getName();
         <li class="treeview">
           <a href="#">
             <i data-feather="hard-drive"></i>
-            <span>Content</span>
+            <span>Employee Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -120,7 +120,7 @@ $route  = Route::current()->getName();
         <li class="treeview">
           <a href="#">
             <i data-feather="package"></i>
-            <span>Utilities</span>
+            <span>Marks Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -137,7 +137,7 @@ $route  = Route::current()->getName();
 		<li class="treeview">
           <a href="#">
             <i data-feather="edit-2"></i>
-            <span>Icons</span>
+            <span>Accounts Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -154,134 +154,32 @@ $route  = Route::current()->getName();
           </ul>
         </li> 
 		  
-        <li class="treeview">
-          <a href="#">
-            <i data-feather="inbox"></i>
-			<span>Forms</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="forms_advanced.html"><i class="ti-more"></i>Advanced Elements</a></li>
-            <li><a href="forms_editors.html"><i class="ti-more"></i>Editors</a></li>
-            <li><a href="forms_code_editor.html"><i class="ti-more"></i>Code Editor</a></li>
-            <li><a href="forms_validation.html"><i class="ti-more"></i>Form Validation</a></li>
-            <li><a href="forms_wizard.html"><i class="ti-more"></i>Form Wizard</a></li>
-            <li><a href="forms_general.html"><i class="ti-more"></i>General Elements</a></li>
-            <li><a href="forms_dropzone.html"><i class="ti-more"></i>Dropzone</a></li>
-          </ul>
-        </li>
 
-        
-		<li class="treeview">
-          <a href="#">
-            <i data-feather="server"></i>
-			<span>Tables</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="tables_simple.html"><i class="ti-more"></i>Simple tables</a></li>
-            <li><a href="tables_data.html"><i class="ti-more"></i>Data tables</a></li>
-          </ul>
-        </li>
+    <li class="header nav-small-cap">Reports</li>  		  		  
 		  
-        <li class="treeview">
-          <a href="#">
-            <i data-feather="pie-chart"></i>
-            <span>Charts</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="charts_chartjs.html"><i class="ti-more"></i>ChartJS</a></li>
-            <li><a href="charts_flot.html"><i class="ti-more"></i>Flot</a></li>
-            <li><a href="charts_inline.html"><i class="ti-more"></i>Inline</a></li>	
-            <li><a href="charts_morris.html"><i class="ti-more"></i>Morris</a></li>
-            <li><a href="charts_peity.html"><i class="ti-more"></i>Peity</a></li>
-            <li><a href="charts_chartist.html"><i class="ti-more"></i>Chartist</a></li>
-          </ul>
-        </li>  
-		  
-        <li class="treeview">
-          <a href="#">
-            <i data-feather="map"></i>
-			<span>Map</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="map_google.html"><i class="ti-more"></i>Google Map</a></li>
-            <li><a href="map_vector.html"><i class="ti-more"></i>Vector Map</a></li>
-          </ul>
-        </li> 			  
-		  
-		<li class="treeview">
-          <a href="#">
-            <i data-feather="alert-triangle"></i>
-			<span>Authentication</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="auth_login.html"><i class="ti-more"></i>Login</a></li>
-			<li><a href="auth_register.html"><i class="ti-more"></i>Register</a></li>
-			<li><a href="auth_lockscreen.html"><i class="ti-more"></i>Lockscreen</a></li>
-			<li><a href="auth_user_pass.html"><i class="ti-more"></i>Password</a></li>
-			<li><a href="error_404.html"><i class="ti-more"></i>Error 404</a></li>
-			<li><a href="error_maintenance.html"><i class="ti-more"></i>Maintenance</a></li>	
-          </ul>
-        </li> 		  		  
-		  
-		<li class="header nav-small-cap">EXTRA</li>		  
+		{{-- <li class="header nav-small-cap">Repo</li>		   --}}
 		  
         <li class="treeview">
           <a href="#">
             <i data-feather="layers"></i>
-			<span>Multilevel</span>
+			<span>Reports Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Level One</a></li>
-            <li class="treeview">
-              <a href="#">Level One
-                <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#">Level Two</a></li>
-                <li class="treeview">
-                  <a href="#">Level Two
-                    <span class="pull-right-container">
-					  <i class="fa fa-angle-right pull-right"></i>
-					</span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#">Level Three</a></li>
-                    <li><a href="#">Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#">Level One</a></li>
+         <ul class="treeview-menu">
+            <li><a href="icons_fontawesome.html"><i class="ti-more"></i>Font Awesome</a></li>
+            <li><a href="icons_glyphicons.html"><i class="ti-more"></i>Glyphicons</a></li>
+            <li><a href="icons_material.html"><i class="ti-more"></i>Material Icons</a></li>  
+            <li><a href="icons_themify.html"><i class="ti-more"></i>Themify Icons</a></li>
+            <li><a href="icons_simpleline.html"><i class="ti-more"></i>Simple Line Icons</a></li>
+            <li><a href="icons_cryptocoins.html"><i class="ti-more"></i>Cryptocoins Icons</a></li>
+            <li><a href="icons_flag.html"><i class="ti-more"></i>Flag Icons</a></li>
+            <li><a href="icons_weather.html"><i class="ti-more"></i>Weather Icons</a></li>
           </ul>
         </li>  
 		  
-		<li>
-          <a href="auth_login.html">
-            <i data-feather="lock"></i>
-			<span>Log Out</span>
-          </a>
-        </li> 
-        
+
       </ul>
     </section>
 	

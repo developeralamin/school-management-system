@@ -16,12 +16,14 @@ class UserController extends Controller
 
     	 return view('backend.users.view_user',$this->data);
     }
+     // End method
 
     public function UserAdd()
     {
     	return view('backend.users.add_user');
     }
 
+ // End method
 
     public function UserStore (Request $request)
     {
@@ -44,6 +46,8 @@ class UserController extends Controller
        
     }
 
+ // End method
+
 
     public function UserEdit($id)
     {
@@ -54,7 +58,7 @@ class UserController extends Controller
 
     public function UserUpdate(Request $request, $id)
     {
-    	 $data             = User::find($id);
+    	  $data             = User::find($id);
         $data->usertype    = $request->usertype;
         $data->name        = $request->name;
         $data->email       = $request->email;
@@ -63,7 +67,9 @@ class UserController extends Controller
       Toastr::success('User Successfully Updated :)' ,'Success');
       return redirect()->route('user.view');
     }
+ // End method
 
+    
 
   public function UserDelete($id)
   {
@@ -75,6 +81,6 @@ class UserController extends Controller
        return redirect()->route('user.view');
   }
 
-
+ // End method
 
 }

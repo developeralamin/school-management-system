@@ -19,6 +19,9 @@ class PorfileController extends Controller
 
     	return view('backend.users.view_profile',compact('user'));
     }
+    
+ // End method
+
 
     public function EditProfile()
     {
@@ -27,6 +30,8 @@ class PorfileController extends Controller
 
     	return view('backend.users.edit_profile',compact('editData'));
     }
+
+ // End method
 
 	  public function StoreProfile(Request $request)
 
@@ -40,16 +45,12 @@ class PorfileController extends Controller
 
       // if($request->file('image')) {
       //      	 $file=$request->file('image');
-
       //      	 @unlink(public_path('uploads/user_image/'.$data->image));
-
       //      	 $filename = date('YmdHi').$file->getClientOriginalName();
-
       //      	 $file->move(public_path('uploads/user_image'),$filename);
-
       //      	 $data['image'] = $filename;
-
       //      }
+
 
  	   if ($request->file('image')) {
     		$file = $request->file('image');
@@ -72,14 +73,14 @@ class PorfileController extends Controller
      {
      	return view('backend.users.edit_password');
      }
-
+    // End method
 
      public function PasswordUpdate(Request $request)
      {
      	   $validata = $request->validate([
 	    	'oldpassword'  => 'required',
 	        'password'     => 'required|confirmed',
-	    ]);	
+	     ]);	
 
      	   $haspassword = Auth::user()->password;
 
@@ -94,6 +95,6 @@ class PorfileController extends Controller
      	  	 return redirect()->back();
      	  }
      }
-
+ // End method
 
 }
