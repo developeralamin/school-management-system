@@ -7,6 +7,8 @@ use App\Http\Controllers\Backend\PorfileController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
+use App\Http\Controllers\Backend\Setup\StudentShiftController;
+use App\Http\Controllers\Backend\Setup\StudentFeeCateroyController;
 
 
 
@@ -61,7 +63,7 @@ Route::post('/password/update',[PorfileController::class,'PasswordUpdate'])->nam
 
 Route::prefix('setups')->group(function (){
 
-// StudentClass All Route
+// Setup Management  StudentClass All Route
 
 Route::get('student/class/view',[StudentClassController::class,'ClassView'])->name('student.class.view');
 
@@ -76,7 +78,7 @@ Route::post('student/class/update/{id}',[StudentClassController::class,'ClassUpd
 Route::get('student/class/delete/{id}',[StudentClassController::class,'ClassDelete'])->name('student.class.delete');
 
 
-// StudentYear All Route
+// Setup Management StudentYear All Route
 
 Route::get('student/year/view',[StudentYearController::class,'YearView'])->name('student.year.view');
 
@@ -91,7 +93,7 @@ Route::post('student/year/update/{id}',[StudentYearController::class,'YearUpdate
 Route::get('student/year/delete/{id}',[StudentYearController::class,'YearDelete'])->name('student.year.delete');
 
 
-// StudentGroup All Route
+// Setup Management StudentGroup All Route
 
 Route::get('student/group/view',[StudentGroupController::class,'GroupView'])->name('student.group.view');
 
@@ -105,5 +107,40 @@ Route::get('student/group/edit/{id}',[StudentGroupController::class,'GroupEdit']
 Route::post('student/group/update/{id}',[StudentGroupController::class,'GroupUpdate'])->name('student.group.update');
 
 Route::get('student/group/delete/{id}',[StudentGroupController::class,'GroupDelete'])->name('student.group.delete');
+
+
+
+// Setup Management StudentShift All Route
+
+
+Route::get('student/shift/view',[StudentShiftController::class,'ShiftView'])->name('student.shift.view');
+
+Route::get('student/shift/add',[StudentShiftController::class,'ShiftAdd'])->name('student.shift.add');
+
+Route::post('student/shift/store',[StudentShiftController::class,'ShiftStore'])->name('student.shift.store');
+
+
+Route::get('student/shift/edit/{id}',[StudentShiftController::class,'ShiftEdit'])->name('student.shift.edit');
+
+Route::post('student/shift/update/{id}',[StudentShiftController::class,'ShiftUpdate'])->name('student.shift.update');
+
+Route::get('student/shift/delete/{id}',[StudentShiftController::class,'ShiftDelete'])->name('student.shift.delete');
+
+
+// Setup Management FeeCategory All Route
+
+Route::get('fee/category/view',[StudentFeeCateroyController::class,'FeeCategoryView'])->name('fee.category.view');
+
+Route::get('fee/category/add',[StudentFeeCateroyController::class,'FeeCategoryAdd'])->name('fee.category.add');
+
+Route::post('fee/category/store',[StudentFeeCateroyController::class,'FeeCategoryStore'])->name('fee.category.store');
+
+
+Route::get('fee/category/edit/{id}',[StudentFeeCateroyController::class,'FeeCategoryEdit'])->name('fee.category.edit');
+
+Route::post('fee/category/update/{id}',[StudentFeeCateroyController::class,'FeeCategoryUpdate'])->name('fee.category.update');
+
+Route::get('fee/category/delete/{id}',[StudentFeeCateroyController::class,'FeeCategoryDelete'])->name('fee.category.delete');
+
 
 });

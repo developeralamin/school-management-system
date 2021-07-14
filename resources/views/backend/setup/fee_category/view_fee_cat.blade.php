@@ -6,6 +6,7 @@
 	  <div class="container-full">
 		<!-- Content Header (Page header) -->
 		 
+
 		<!-- Main content -->
 		<section class="content">
 		  <div class="row">
@@ -15,9 +16,9 @@
 
 	 <div class="box">
   <div class="box-header with-border">
-	<h3 class="box-title">Student Year List</h3>
-	<a href="{{ route('student.year.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Student Year</a>			  
- </div>
+	<h3 class="box-title">Student Fee Category List</h3>
+	<a href="{{ route('fee.category.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Student Fee Category</a>			  
+				</div>
 				<!-- /.box-header -->
 		<div class="box-body">
 			<div class="table-responsive">
@@ -31,13 +32,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($allData as $key => $year )
+			@foreach($allData as $key => $fee )
 			<tr>
 				<td>{{ $key+1 }}</td>
-				<td>{{ $year->name }}</td>
+				<td>{{ $fee->name }}</td>
 				<td>
-<a href="{{ route('student.year.edit',$year->id) }}" class="btn btn-info">Edit</a>
-<a href="{{ route('student.year.delete',$year->id) }}" class="btn btn-danger" id="delete">Delete</a>
+<a href="{{ route('fee.category.edit',$fee->id) }}" class="btn btn-info">Edit</a>
+<a href="{{ route('fee.category.delete',$fee->id) }}" class="btn btn-danger" id="delete">Delete</a>
 
 				</td>
 				 
@@ -64,6 +65,9 @@
 	  
 	  </div>
   </div>
+
+
+
 
 
 @endsection

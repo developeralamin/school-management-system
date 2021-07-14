@@ -15,8 +15,8 @@
 
 	 <div class="box">
   <div class="box-header with-border">
-	<h3 class="box-title">Student Year List</h3>
-	<a href="{{ route('student.year.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Student Year</a>			  
+	<h3 class="box-title">Student Shift List</h3>
+	<a href="{{ route('student.shift.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Student Shift</a>			  
  </div>
 				<!-- /.box-header -->
 		<div class="box-body">
@@ -31,13 +31,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($allData as $key => $year )
+			@foreach($allData as $key => $shift )
 			<tr>
 				<td>{{ $key+1 }}</td>
-				<td>{{ $year->name }}</td>
+				<td>{{ $shift->name }}</td>
 				<td>
-<a href="{{ route('student.year.edit',$year->id) }}" class="btn btn-info">Edit</a>
-<a href="{{ route('student.year.delete',$year->id) }}" class="btn btn-danger" id="delete">Delete</a>
+<a href="{{ route('student.shift.edit',$shift->id) }}" class="btn btn-info">Edit</a>
+<a href="{{ route('student.shift.delete',$shift->id) }}" class="btn btn-danger" id="delete">Delete</a>
 
 				</td>
 				 

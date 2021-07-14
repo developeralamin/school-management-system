@@ -31,13 +31,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($allData as $key => $student )
+			@foreach($allData as $key => $group )
 			<tr>
 				<td>{{ $key+1 }}</td>
-				<td>{{ $student->name }}</td>
+				<td>{{ $group->name }}</td>
 				<td>
-<a href="{{ route('student.group.edit',$student->id) }}" class="btn btn-info">Edit</a>
-<a href="{{ route('student.group.delete',$student->id) }}" class="btn btn-danger" id="delete">Delete</a>
+<a href="{{ route('student.group.edit',$group->id) }}" class="btn btn-info">Edit</a>
+<a href="{{ route('student.group.delete',$group->id) }}" class="btn btn-danger" id="delete">Delete</a>
 
 				</td>
 				 

@@ -23,11 +23,12 @@ class StudentGroupController extends Controller
 	  {
 	  	  return view('backend.setup.student_group.add_group');
 	  }
+
 	// End method
 
 	  public function GroupStore(Request $request)
 	  {
-	  	 $validata = $request->validate([
+	  	$validata = $request->validate([
 	    	'name'  => 'required|unique:student_groups',
 	     
 	     ]);	
@@ -41,6 +42,38 @@ class StudentGroupController extends Controller
 	  }
 
 	// End method
+
+	  public function GroupEdit($id)
+	  {
+	  	  $this->data['editData'] = StudentGroup::find($id);
+    	 return view('backend.setup.student_group.edit_group',$this->data);
+	  }
+
+   // End method
+
+
+	  public function GroupUpdate(Request $request , $id)
+	  {
+	  	 $data              =  StudentGroup::find($id);
+        $data->name         = $request->name;
+        $data->save();
+
+      Toastr::success('Student Group Successfully Update :)' ,'Success');
+      return redirect()->route('student.group.view');
+	  }
+
+	 //End method
+
+	  public function GroupDelete($id)
+	  {
+	  	  $group = StudentGroup::find($id);
+	  	  $group->delete();
+	  	  Toastr::success('Student Group Successfully Update :)' ,'Success');
+          return redirect()->route('student.group.view');
+
+	  }
+	  //End method
+
 
 
 }
