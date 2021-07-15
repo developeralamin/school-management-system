@@ -76,7 +76,7 @@ class SchoolSubjectController extends Controller
       return redirect()->back();
    }
 
-
+//End method
 
 
 }

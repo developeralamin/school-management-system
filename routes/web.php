@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\Setup\StudentFeeCateroyController;
 use App\Http\Controllers\Backend\Setup\FeeAmountController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
 use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
+use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 
 
 
@@ -198,7 +199,20 @@ Route::post('school/subject/update/{id}',[SchoolSubjectController::class,'School
 Route::get('school/subject/delete/{id}',[SchoolSubjectController::class,'SchoolSubjectDelete'])->name('school.subject.delete');
 
 
-// Setup Management School Subject All Route
+// Setup Management AssignSubject All Route
+
+
+Route::get('assign/subject/view',[AssignSubjectController::class,'AssignSubjectView'])->name('assign.subject.view');
+
+Route::get('assign/subject/add',[AssignSubjectController::class,'AssignSubjectAdd'])->name('assign.subject.add');
+
+Route::post('assign/subject/store',[AssignSubjectController::class,'AssignSubjectStore'])->name('assign.subject.store');
+
+Route::get('assign/subject/edit/{fee_category_id}',[AssignSubjectController::class,'AssignSubjectEdit'])->name('assign.subject.edit');
+
+Route::post('assign/subject/update/{fee_category_id}',[AssignSubjectController::class,'AssignSubjectUpdate'])->name('assign.subject.update');
+
+Route::get('assign/subject/details/{fee_category_id}',[AssignSubjectController::class,'AssignSubjectDetails'])->name('assign.subject.details');
 
 
 
