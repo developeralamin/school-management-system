@@ -61,9 +61,67 @@ class AssignSubjectController extends Controller
 
  // End Method
 
+   public function AssignSubjectEdit($class_id)
+   {
+
+   	 $this->data['editData'] =AssignSubject::where('class_id',$class_id)->orderBy('subject_id','asc')->get();
+   	 $this->data['classes']            = StudentClass::all();
+     $this->data['subjects']           = SchoolSubject::all();
+
+    return view('backend.setup.assign_subject.assign_subject_edit',$this->data);
+
+   }
+
+ // End Method
+
+   public function AssignSubjectUpdate(Request $request , $class_id)
+   {
+
+       if($request->subject_id == NULL){
+          $notification = array(
+	        	'message' => 'Sorry You do not select any Subject',
+	        	'alert-type' => 'error'
+	        );   
+          return redirect()->back()->with($notification);
+       }else{
+
+         $countSubject = count($request->subject_id);
+
+        AssignSubject::where('class_id',$class_id)->delete();
+
+        for ($i=0; $i < $countSubject ; $i++) { 
+				
+				$assign_subject                    = new AssignSubject();
+				$assign_subject->class_id          = $request->class_id;
+				$assign_subject->subject_id        = $request->subject_id[$i];
+				$assign_subject->full_mark         = $request->full_mark[$i];
+				$assign_subject->pass_mark         = $request->pass_mark[$i];
+				$assign_subject->subjective_mark   = $request->subjective_mark[$i];
+				
+		         $assign_subject->save();
+
+			} // End for loop
+
+       }//End if condition
+
+       Toastr::success('Data Updated Successfully:)' ,'Success');
+       return redirect()->route('assign.subject.view');
+
+   }
 
 
 
+    
 
+
+    public function AssignSubjectDetails($class_id)
+    {
+    	  $this->data['DetailsData'] =AssignSubject::where('class_id',$class_id)->orderBy('subject_id','asc')->get();
+
+    	  return view('backend.setup.assign_subject.assign_subject_details',$this->data);
+    }
+
+
+ //End Method
 
 }

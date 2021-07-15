@@ -9,9 +9,15 @@ class AssignSubject extends Model
 {
     use HasFactory;
 
-     public function student_classes()
+  public function student_classes()
    {
       return $this->belongsTo(StudentClass::class,'class_id','id');
    }
+
+  public function student_subject()
+   {
+      return $this->belongsTo(SchoolSubject::class,'subject_id','id');
+   }
+   
    
 }

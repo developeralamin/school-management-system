@@ -57,7 +57,7 @@ class FeeAmountController extends Controller
 
   public function FeeAmountEdit($fee_category_id)
    {
-      $this->data['editData']     = FeeAmount::where('fee_category_id',$fee_category_id)->orderBy('class_id','asc')->get();
+      $this->data['editData']        = FeeAmount::where('fee_category_id',$fee_category_id)->orderBy('class_id','asc')->get();
 
       $this->data['fee_categories']    = FeeCategory::all();
       $this->data['classes']           = StudentClass::all();

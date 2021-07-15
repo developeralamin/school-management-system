@@ -15,29 +15,39 @@
 
 	 <div class="box">
   <div class="box-header with-border">
-	<h3 class="box-title">Student Assign Subject List</h3>
-	<a href="{{ route('assign.subject.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Assign Subject</a>			  
+	<h3 class="box-title">Assign Subject Details</h3>
+
+	<a href="{{ route('assign.subject.view') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">Assign Subject List</a>			  
  </div>
 				<!-- /.box-header -->
 		<div class="box-body">
 			<div class="table-responsive">
+
+		<h3><strong>Class Name: </strong> {{ $DetailsData['0']['student_classes']['name'] }}</h3>
+
 	<table id="example1" class="table table-bordered table-striped">
 		<thead>
 			<tr>
 				<th width="5%">SL</th>
-				<th>Class Name</th>
-				<th width="25%">Action</th>
+				<th>Subject Name</th>
+				<th>Full Marks</th>
+				<th>Pass Marks</th>
+				<th>Subjective Marks</th>
+				
 				 
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($allData as $key => $assign_subject )
+			@foreach($DetailsData as $key => $detail )
 			<tr>
 				<td>{{ $key+1 }}</td>
-				<td>{{ $assign_subject['student_classes']['name'] }}</td>
+				<td>{{ $detail['student_subject']['name'] }}</td>
+				<td>{{ $detail->full_mark }}</td>
+				<td>{{ $detail->pass_mark }}</td>
+				<td>{{ $detail->subjective_mark }}</td>
+				
 				<td>
-<a href="{{ route('assign.subject.edit',$assign_subject->class_id) }}" class="btn btn-info">Edit</a>
-<a href="{{ route('assign.subject.details',$assign_subject->class_id) }}" class="btn btn-success" >Details</a>
+
 
 				</td>
 				 

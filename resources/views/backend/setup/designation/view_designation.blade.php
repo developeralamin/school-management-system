@@ -6,6 +6,7 @@
 	  <div class="container-full">
 		<!-- Content Header (Page header) -->
 		 
+
 		<!-- Main content -->
 		<section class="content">
 		  <div class="row">
@@ -15,9 +16,9 @@
 
 	 <div class="box">
   <div class="box-header with-border">
-	<h3 class="box-title">Student Assign Subject List</h3>
-	<a href="{{ route('assign.subject.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Assign Subject</a>			  
- </div>
+	<h3 class="box-title">Designation List</h3>
+	<a href="{{ route('designation.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Designation</a>			  
+				</div>
 				<!-- /.box-header -->
 		<div class="box-body">
 			<div class="table-responsive">
@@ -25,19 +26,19 @@
 		<thead>
 			<tr>
 				<th width="5%">SL</th>
-				<th>Class Name</th>
+				<th>Name</th>
 				<th width="25%">Action</th>
 				 
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($allData as $key => $assign_subject )
+			@foreach($allData as $key => $designation )
 			<tr>
 				<td>{{ $key+1 }}</td>
-				<td>{{ $assign_subject['student_classes']['name'] }}</td>
+				<td>{{ $designation->name }}</td>
 				<td>
-<a href="{{ route('assign.subject.edit',$assign_subject->class_id) }}" class="btn btn-info">Edit</a>
-<a href="{{ route('assign.subject.details',$assign_subject->class_id) }}" class="btn btn-success" >Details</a>
+<a href="{{ route('designation.edit',$designation->id) }}" class="btn btn-info">Edit</a>
+<a href="{{ route('designation.delete',$designation->id) }}" class="btn btn-danger" id="delete">Delete</a>
 
 				</td>
 				 
@@ -64,6 +65,9 @@
 	  
 	  </div>
   </div>
+
+
+
 
 
 @endsection
