@@ -122,7 +122,7 @@
     @endif
 </script>
 
-{{-- <script>
+<script>
 
 
 
@@ -150,7 +150,7 @@
  @endif 
 
 
-</script> --}}
+</script>
 	
 </body>
 </html>

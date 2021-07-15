@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\Setup\StudentYearController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\StudentFeeCateroyController;
+use App\Http\Controllers\Backend\Setup\FeeAmountController;
 
 
 
@@ -142,5 +143,21 @@ Route::post('fee/category/update/{id}',[StudentFeeCateroyController::class,'FeeC
 
 Route::get('fee/category/delete/{id}',[StudentFeeCateroyController::class,'FeeCategoryDelete'])->name('fee.category.delete');
 
+
+
+
+// Setup Management Fee Amount All Route
+
+Route::get('fee/amount/view',[FeeAmountController::class,'FeeAmountView'])->name('fee.amount.view');
+
+Route::get('fee/amount/add',[FeeAmountController::class,'FeeAmountAdd'])->name('fee.amount.add');
+
+Route::post('fee/amount/store',[FeeAmountController::class,'FeeAmountStore'])->name('fee.amount.store');
+
+Route::get('fee/amount/edit/{fee_category_id}',[FeeAmountController::class,'FeeAmountEdit'])->name('fee.amount.edit');
+
+Route::post('fee/amount/update/{fee_category_id}',[FeeAmountController::class,'FeeAmountUpdate'])->name('fee.amount.update');
+
+Route::get('fee/amount/details/{fee_category_id}',[FeeAmountController::class,'FeeAmountDetails'])->name('fee.amount.details');
 
 });
