@@ -244,6 +244,12 @@ Route::prefix('students')->group(function (){
 
 Route::get('/reg/view',[StudentRegistrationController::class,'ViewRegistration'])->name('reg.view');
 
+Route::get('/reg/Add',[StudentRegistrationController::class,'AddStudentRegistration'])->name('reg.Add');
+
+
+Route::post('/reg/store',[StudentRegistrationController::class,'StudentRegistraionStore'])->name('reg.store');
+
+
 
 });
 
