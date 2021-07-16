@@ -35,6 +35,8 @@ $route  = Route::current()->getName();
           </a>
         </li>  
 		
+   @if(Auth::user()->role == 'Admin')
+
       <li class="treeview {{ ($prefix == '/users')?'active' : '' }}">
 
         <a href="#">
@@ -50,6 +52,8 @@ $route  = Route::current()->getName();
         </ul>
 
       </li> 
+
+    @endif  
 		  
         <li class="treeview {{ ($prefix == '/profile')?'active' : '' }}">
           <a href="#">
@@ -91,7 +95,6 @@ $route  = Route::current()->getName();
 
     <li><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Assign Subject</a></li>
 
-
     <li><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Designations</a></li>
    
   </ul>
@@ -106,12 +109,12 @@ $route  = Route::current()->getName();
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
-   <ul class="treeview-menu">
-			<li><a href="card_advanced.html"><i class="ti-more"></i>Advanced Cards</a></li>
-			<li><a href="card_basic.html"><i class="ti-more"></i>Basic Cards</a></li>
-			<li><a href="card_color.html"><i class="ti-more"></i>Cards Color</a></li>
+      <ul class="treeview-menu">
+    			<li><a href="{{ route('reg.view') }}"><i class="ti-more"></i>Student Registration</a></li>
+    			<li><a href=""><i class="ti-more"></i>Basic Cards</a></li>
+    			<li><a href=""><i class="ti-more"></i>Cards Color</a></li>
 		  </ul>
-        </li>  
+    </li>  
 		  
         <li class="treeview">
           <a href="#">

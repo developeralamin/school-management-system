@@ -15,6 +15,8 @@ use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 
+use App\Http\Controllers\Backend\Student\StudentRegistrationController;
+
 
 
 /*
@@ -60,7 +62,6 @@ Route::get('/edit',[PorfileController::class,'EditProfile'])->name('profile.edit
 Route::post('/store',[PorfileController::class,'StoreProfile'])->name('profile.store');
 Route::get('/password/view',[PorfileController::class,'PasswordView'])->name('password.view');
 Route::post('/password/update',[PorfileController::class,'PasswordUpdate'])->name('password.update');
-
 
 });
 
@@ -235,3 +236,14 @@ Route::get('designation/delete/{id}',[DesignationController::class,'DesignationD
 
 
 });
+
+
+// Student Management All Routes
+
+Route::prefix('students')->group(function (){
+
+Route::get('/reg/view',[StudentRegistrationController::class,'ViewRegistration'])->name('reg.view');
+
+
+});
+

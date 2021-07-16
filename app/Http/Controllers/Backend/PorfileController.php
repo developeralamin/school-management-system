@@ -14,8 +14,8 @@ class PorfileController extends Controller
 {
     public function ViewProfile()
     {
-    	$id = Auth::user()->id;
-    	$user = User::find($id);
+    	$id    = Auth::user()->id;
+    	$user  = User::find($id);
 
     	return view('backend.users.view_profile',compact('user'));
     }

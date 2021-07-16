@@ -32,10 +32,10 @@
 		<div class="form-group">
 	<h5>User Role <span class="text-danger">*</span></h5>
 	<div class="controls">
-	 <select name="usertype" id="usertype"  class="form-control">
+	 <select name="role" id="role"  class="form-control">
 			<option value="" selected="" disabled="">Select Role</option>
-			<option value="Admin" {{ ($editData->usertype == "Admin" ? "selected": "") }} >Admin</option>
-			<option value="Operator" {{ ($editData->usertype == "Operator" ? "selected": "") }}>Operator</option>
+			<option value="Admin" {{ ($editData->role == "Admin" ? "selected": "") }} >Admin</option>
+			<option value="Operator" {{ ($editData->role == "Operator" ? "selected": "") }}>Operator</option>
 			 
 		</select>
 	 </div>
@@ -62,7 +62,7 @@
 		<div class="col-md-6" >
 
 	  <div class="form-group">
-			<h5>User Email <span class="text-danger">*</span></h5>
+			<h5>Email <span class="text-danger">*</span></h5>
 			<div class="controls">
 		 <input type="email" name="email" value="{{ $editData->email }}" class="form-control" >  </div>
 			 

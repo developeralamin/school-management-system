@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function UserView()
     {
-    	 $this->data['allData'] = User::all();
+    	 $this->data['allData'] = User::where('usertype','Admin')->get();
 
     	 return view('backend.users.view_user',$this->data);
     }
@@ -34,11 +34,13 @@ class UserController extends Controller
     ]);	
 
         $data              = new User();
-        $data->usertype    = $request->usertype;
+        $code              = rand(00000,999999);
+        $data->usertype    = 'Admin';
+        $data->role        = $request->role;
         $data->name        = $request->name;
         $data->email       = $request->email;
-        $data->password    = bcrypt($request->password);
-
+        $data->password    = bcrypt($code);
+        $data->code        = $code;
         $data->save();
 
      Toastr::success('User Successfully Saved :)' ,'Success');
@@ -58,11 +60,11 @@ class UserController extends Controller
 
     public function UserUpdate(Request $request, $id)
     {
-    	  $data             = User::find($id);
-        $data->usertype    = $request->usertype;
-        $data->name        = $request->name;
-        $data->email       = $request->email;
-        $data->save();
+    	 $data              = User::find($id);
+      $data->name         = $request->name;
+      $data->email        = $request->email;
+      $data->role         = $request->role;
+      $data->save();
 
       Toastr::success('User Successfully Updated :)' ,'Success');
       return redirect()->route('user.view');
