@@ -21,7 +21,15 @@ class StudentRegistrationController extends Controller
 {
     public function ViewRegistration()
     {
-        $this->data['allData']  = AssignStudent::all();
+      
+         $this->data['classes']     = StudentClass::all();
+        $this->data['years']        = StudentYear::all();	
+
+    
+        $this->data['class_id']     = StudentClass::orderBy('id','asc')->first()->id;
+        $this->data['year_id']      = StudentYear::orderBy('id','asc')->first()->id;	
+
+        $this->data['allData']      = AssignStudent::where('year_id', $this->data['year_id'])->where('class_id', $this->data['class_id'])->get();
 
         return view('backend.student.student_reg.student_view',$this->data);    
     }

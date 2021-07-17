@@ -46,7 +46,7 @@
 			<div class="form-group">
 				<h5>Father's Name <span class="text-danger">*</span></h5>
 			<div class="controls">
-				 <input type="text" name="fname"  class="form-control" >  
+				 <input type="text" name="fname"  class="form-control" required="">  
 			</div>
 				 
 			</div>
@@ -56,7 +56,7 @@
 			<div class="form-group">
 				<h5>Mother's Name <span class="text-danger">*</span></h5>
 			<div class="controls">
-				 <input type="text" name="mname"  class="form-control" >  
+				 <input type="text" name="mname"  class="form-control" required="" >  
 			</div>
 				 
 			</div>
@@ -71,7 +71,7 @@
 			<div class="form-group">
 				<h5>Mobile Number <span class="text-danger">*</span></h5>
 			<div class="controls">
-				 <input type="text" name="mobile"  class="form-control" >  
+				 <input type="text" name="mobile"  class="form-control" required="" >  
 			</div>
 				 
 			</div>
@@ -81,7 +81,7 @@
 			<div class="form-group">
 				<h5>Address <span class="text-danger">*</span></h5>
 			<div class="controls">
-				 <input type="text" name="address"  class="form-control" >  
+				 <input type="text" name="address"  class="form-control" required="">  
 			</div>
 				 
 			</div>
@@ -90,7 +90,7 @@
 		<div class="col-md-4" >		
 		 <h5>Gender <span class="text-danger">*</span></h5>
 		<div class="controls">
-		 <select name="gender" id="gender"  class="form-control">
+		 <select name="gender" id="gender" required=""  class="form-control">
 				<option value="" selected="" disabled="">Select Gender</option>
 				<option value="Male">Male</option>
 				<option value="FeMale">FeMale</option>
@@ -108,7 +108,7 @@
 			<div class="form-group">
 				<h5>Religion <span class="text-danger">*</span></h5>
 			<div class="controls">
-			<select name="religion" id="religion"  class="form-control">
+			<select name="religion" id="religion"  required="" class="form-control">
 				<option value="" selected="" disabled="">Select Religion</option>
 				<option value="Muslim">Muslim</option>
 				<option value="Hindu">Hindu</option>
@@ -125,7 +125,7 @@
 			<div class="form-group">
 				<h5>Date Of Birth <span class="text-danger">*</span></h5>
 			<div class="controls">
-				 <input type="date" name="dob"  class="form-control" >  
+				 <input type="date" name="dob" required="" class="form-control" >  
 			</div>
 				 
 			</div>
@@ -135,7 +135,7 @@
 		 <div class="form-group">
 				<h5>Discount <span class="text-danger">*</span></h5>
 			<div class="controls">
-				 <input type="text" name="discount"  class="form-control" >  
+				 <input type="text" name="discount" required=""  class="form-control" >  
 			</div>
 				 
 			</div>
@@ -150,7 +150,7 @@
 			<div class="form-group">
 				<h5>Year <span class="text-danger">*</span></h5>
 			<div class="controls">
-			<select name="year_id" id="year_id"  class="form-control">
+			<select name="year_id" id="year_id"  required="" class="form-control">
 				<option value="" selected="" disabled="">Select Year</option>
 		@foreach($years as $year)		
 				<option value="{{ $year->id }}">{{ $year->name }}</option>
@@ -167,7 +167,7 @@
 			<div class="form-group">
 				<h5>Class<span class="text-danger">*</span></h5>
 			<div class="controls">
-				<select name="class_id" id="class_id"  class="form-control">
+				<select name="class_id" id="class_id" required=""  class="form-control">
 				<option value="" selected="" disabled="">Select Class</option>
 		@foreach($classes as $class)		
 				<option value="{{ $class->id }}">{{ $class->name }}</option>
@@ -183,7 +183,7 @@
 		 <div class="form-group">
 				<h5>Group <span class="text-danger">*</span></h5>
 			<div class="controls">
-				<select name="group_id" id="group_id"  class="form-control">
+				<select name="group_id" id="group_id" required=""  class="form-control">
 				<option value="" selected="" disabled="">Select Group</option>
 	  @foreach($groups as $group)		
 				<option value="{{ $group->id }}">{{ $group->name }}</option>
@@ -207,7 +207,7 @@
 			<div class="form-group">
 				<h5>Shift <span class="text-danger">*</span></h5>
 			<div class="controls">
-			<select name="shift_id" id="shift_id"  class="form-control">
+			<select name="shift_id" id="shift_id" required=""  class="form-control">
 				<option value="" selected="" disabled="">Select Shift</option>
 		@foreach($shifts as $shift)		
 				<option value="{{ $shift->id }}">{{ $shift->name }}</option>
@@ -224,7 +224,7 @@
 		<div class="form-group">
 			<h5>Student Profile <span class="text-danger">*</span></h5>
 			<div class="controls">
-		 <input type="file" name="image" id="image" class="form-control" >  </div> 
+		 <input type="file" name="image" required="" id="image" class="form-control" >  </div> 
 		</div>
 	</div><!-- End Col Md-4 -->
 

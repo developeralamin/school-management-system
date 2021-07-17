@@ -9,4 +9,8 @@ class StudentYear extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
+
+    public function deliveryList() {
+    return $this->hasMany( DeliveryList::class, 'order_lists_id' );
+}
 }
