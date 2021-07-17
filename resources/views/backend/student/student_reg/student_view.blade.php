@@ -15,64 +15,61 @@
 
 				  <div class="box-body">
 
-			<form method="post" action="">
+
+<form method="GET" action="{{ route('reg.year.class.wish') }}">
+	
 
 	<div class="row">
-		    <div class="col-md-4">
 
- 		 <div class="form-group">
-		<h5>Year <span class="text-danger"> </span></h5>
-		<div class="controls">
-	 <select name="year_id" required="" class="form-control">
-			<option value="" selected="" disabled="">Select Year</option>
-			 @foreach($years as $year)
- <option value="{{ $year->id }}" {{ (@$year_id == $year->id)? "selected":"" }} >{{ $year->name }}</option>
-		 	@endforeach
-			 
-		</select>
-	  </div>		 
-	  </div>
-	  
- 			</div> <!-- End Col md 4 --> 
+     <div class="col-md-4">
+	 	 <div class="form-group">
+			<h5>Year <span class="text-danger"> </span></h5>
+			<div class="controls">
+		 <select name="year_id" required="" class="form-control">
+				<option value="" selected="" disabled="">Select Year</option>
+				 @foreach($years as $year)
+	           <option value="{{ $year->id }}" {{ (@$year_id == $year->id)? "selected":"" }} >{{ $year->name }}</option>
+			 	@endforeach
+				 
+			</select>
+		  </div>		 
+		  </div>
+ 	 </div> <!-- End Col md 4 --> 
 
 
-		<div class="col-md-4">
-
+	<div class="col-md-4">
  		 <div class="form-group">
 		<h5>Class <span class="text-danger"> </span></h5>
 		<div class="controls">
-	 <select name="class_id"  required="" class="form-control">
+	      <select name="class_id"  required="" class="form-control">
 			<option value="" selected="" disabled="">Select Class</option>
-			 @foreach($classes as $class)
+		 @foreach($classes as $class)
 			<option value="{{ $class->id }}" {{ (@$class_id == $class->id)? "selected":"" }}>{{ $class->name }}</option>
-		 	@endforeach
+		 @endforeach
 			 
 		</select>
-	  </div>		 
+	    </div>		 
 	  </div>
-	  
- 			</div> <!-- End Col md 4 --> 
+ 	</div> <!-- End Col md 4 --> 
 
-		<div class="col-md-4" style="padding-top: 20px;" >		
-			<div class="form-group">
-			<div class="controls">
-				<input type="submit" class="btn btn-rounded btn-success mb-5" name="search" value="Search">
-			</div>
-				 
-			</div>
+
+	<div class="col-md-4" style="padding-top: 20px;" >		
+		<div class="form-group">
+		<div class="controls">
+			<input type="submit" class="btn btn-rounded btn-success mb-5" name="search" value="Search">
 		</div>
-
+			 
+		</div>
+	</div>
 
 
 		</div>
-
-
 
 			</form>		
 
 
-				  </div>
-				</div>
+	   </div>
+	</div>
 
 			  
 	<div class="col-12">
@@ -85,6 +82,8 @@
 				{{-- box header --}}
 		<div class="box-body">
 			<div class="table-responsive">
+
+  @if(!@search)				
 	<table id="example1" class="table table-bordered table-striped">
 		<thead>
 			<tr>
@@ -111,7 +110,9 @@
 				<td></td>
 				<td>{{ $value['student_year']['name'] }}</td>
 				<td>{{ $value['student_classes']['name'] }}</td>
-				<td></td>>
+				<td>
+	 <img src="{{ (!empty($value['student']['image']))? url('uploads/student_image/'.$value['student']['image']):url('uploads/no_image.jpg') }}" style="width: 60px; width: 60px;"> 
+				</td>
 				<td>{{ $value['student']['code'] }}</td>
 				<td>
 <a href="{{-- {{ route('student.group.edit',$group->id) }} --}}" class="btn btn-info">Edit</a>
@@ -127,6 +128,58 @@
 				 
 			</tfoot>
 		  </table>
+
+	  @else
+         
+         <table id="example1" class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th width="5%">SL</th>
+				<th>Name</th>
+				<th>ID NO.</th>
+				<th>Roll</th>
+				<th>Year</th>
+				<th>Class</th>
+				<th>Image</th>
+			@if(Auth::user()->role == 'Admin')	
+				<th>Code</th>
+		    @endif		
+				<th width="25%">Action</th>
+				 
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($allData as $key => $value )
+			<tr>
+				<td>{{ $key+1 }}</td>
+				<td>{{ $value['student']['name'] }}</td>
+				<td>{{ $value['student']['id_no'] }}</td>
+				<td></td>
+				<td>{{ $value['student_year']['name'] }}</td>
+				<td>{{ $value['student_classes']['name'] }}</td>
+				<td>
+	 <img src="{{ (!empty($value['student']['image']))? url('uploads/student_image/'.$value['student']['image']):url('uploads/no_image.jpg') }}" style="width: 60px; width: 60px;"> 
+				</td>
+				<td>{{ $value['student']['code'] }}</td>
+				<td>
+<a href="{{-- {{ route('student.group.edit',$group->id) }} --}}" class="btn btn-info">Edit</a>
+<a href="{{-- {{ route('student.group.delete',$group->id) }} --}}" class="btn btn-danger" id="delete">Delete</a>
+
+				</td>
+				 
+			</tr>
+			@endforeach
+							 
+			</tbody>
+			<tfoot>
+				 
+			</tfoot>
+		  </table>
+
+
+	  @endif
+
+
 		</div>
 		</div>
 		

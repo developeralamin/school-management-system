@@ -35,6 +35,25 @@ class StudentRegistrationController extends Controller
     }
 
 //End method
+    
+    public function StudentClassYearWise(Request $request)
+    {
+       $this->data['classes']       = StudentClass::all();
+        $this->data['years']        = StudentYear::all();	
+
+    
+        $this->data['class_id']     = $request->class_id;
+        $this->data['year_id']      = $request->year_id;
+
+        $this->data['allData']      = AssignStudent::where('year_id',$request->year_id)->where('class_id', $request->class_id)->get();
+
+        return view('backend.student.student_reg.student_view',$this->data);   
+    }
+
+
+//End method
+
+
 
     public function AddStudentRegistration()
     {

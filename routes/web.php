@@ -250,6 +250,9 @@ Route::get('/reg/Add',[StudentRegistrationController::class,'AddStudentRegistrat
 Route::post('/reg/store',[StudentRegistrationController::class,'StudentRegistraionStore'])->name('reg.store');
 
 
+Route::get('/reg/year/class/wish',[StudentRegistrationController::class,'StudentClassYearWise'])->name('reg.year.class.wish');
+
+
 
 });
 
