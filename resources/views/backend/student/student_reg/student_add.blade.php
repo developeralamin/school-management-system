@@ -21,7 +21,9 @@
 			  <div class="row">
 				<div class="col">
 
-	 <form method="post" action="{{ route('reg.store') }}">
+	 <form method="post" action="{{ route('reg.store') }}" 
+	 enctype="multipart/form-data">
+
 	 	@csrf
 
 	<div class="row">
@@ -148,7 +150,7 @@
 			<div class="form-group">
 				<h5>Year <span class="text-danger">*</span></h5>
 			<div class="controls">
-			<select name="year_id" id="religion"  class="form-control">
+			<select name="year_id" id="year_id"  class="form-control">
 				<option value="" selected="" disabled="">Select Year</option>
 		@foreach($years as $year)		
 				<option value="{{ $year->id }}">{{ $year->name }}</option>
@@ -205,7 +207,7 @@
 			<div class="form-group">
 				<h5>Shift <span class="text-danger">*</span></h5>
 			<div class="controls">
-			<select name="year_id" id="religion"  class="form-control">
+			<select name="shift_id" id="shift_id"  class="form-control">
 				<option value="" selected="" disabled="">Select Shift</option>
 		@foreach($shifts as $shift)		
 				<option value="{{ $shift->id }}">{{ $shift->name }}</option>
@@ -231,7 +233,7 @@
 		
      <div class="controls">
 	 <img id="showimage"
-	   src="{{ (!empty($user->image))? url('uploads/user_image/'.$user->image):url('uploads/no_image.jpg') }}" style="width: 100px;height: 100px;border: 1px solid #000000" alt="User Avatar"> 
+	   src="{{url('uploads/no_image.jpg') }}" style="width: 100px;height: 100px;border: 1px solid #000000" alt="User Avatar"> 
 	</div>
 
 	</div><!-- End Col Md-6 -->
@@ -239,24 +241,12 @@
   </div> <!-- end 5th row -->
 
 
-
-
-
 	</div><!-- End Col 12 -->
 
 	</div> <!-- End Row -->
-
-
-
-
 	</div> <!-- End Col M12 -->
-
-
 	</div> <!-- End Row -->
-
- 
-  
-						 
+				 
 	 <div class="text-xs-right">
 	   <input type="submit" class="btn btn-rounded btn-info mb-5" value="Submit">
 		<a href="{{ route('reg.view') }}" class="btn btn-rounded btn-success">Back</a>

@@ -101,7 +101,7 @@ $route  = Route::current()->getName();
        
     </li>
 		
-		<li class="treeview">
+		<li class="treeview {{ ($prefix == '/students')?'active' : '' }}">
           <a href="#">
             <i data-feather="credit-card"></i>
             <span>Student Management</span>

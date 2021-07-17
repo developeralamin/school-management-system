@@ -34,7 +34,7 @@
 			@foreach($allData as $key => $value )
 			<tr>
 				<td>{{ $key+1 }}</td>
-				<td>{{ $value->class_id }}</td>
+				<td>{{ $value['student_classes']['name'] }}</td>
 				<td>{{ $value->year_id }}</td>
 				<td>
 <a href="{{-- {{ route('student.group.edit',$group->id) }} --}}" class="btn btn-info">Edit</a>
