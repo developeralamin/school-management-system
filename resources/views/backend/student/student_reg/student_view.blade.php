@@ -162,8 +162,8 @@
 				</td>
 				<td>{{ $value['student']['code'] }}</td>
 				<td>
-<a href="{{-- {{ route('student.group.edit',$group->id) }} --}}" class="btn btn-info">Edit</a>
-<a href="{{-- {{ route('student.group.delete',$group->id) }} --}}" class="btn btn-danger" id="delete">Delete</a>
+<a href="{{ route('student.reg.edit',$value->student_id) }}" class="btn btn-info">Edit</a>
+<a href="{{-- {{ route('student.group.delete',$group->id) }} --}}" class="btn btn-danger" id="delete">Promotion</a>
 
 				</td>
 				 

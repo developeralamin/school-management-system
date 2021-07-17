@@ -239,6 +239,7 @@ Route::get('designation/delete/{id}',[DesignationController::class,'DesignationD
 
 
 // Student Management All Routes
+// Student Registration  All Routes
 
 Route::prefix('students')->group(function (){
 
@@ -251,6 +252,12 @@ Route::post('/reg/store',[StudentRegistrationController::class,'StudentRegistrai
 
 
 Route::get('/reg/year/class/wish',[StudentRegistrationController::class,'StudentClassYearWise'])->name('reg.year.class.wish');
+
+
+Route::get('/student/reg/Edit/{student_id}',[StudentRegistrationController::class,'EditStudentRegistration'])->name('student.reg.edit');
+
+Route::post('/student/reg/update/{student_id}',[StudentRegistrationController::class,'UpdateStudentRegistration'])->name('student.reg.update');
+
 
 
 
