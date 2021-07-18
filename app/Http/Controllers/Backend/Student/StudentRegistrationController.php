@@ -15,7 +15,7 @@ use App\Models\StudentYear;
 use App\Models\StudentGroup;
 use App\Models\StudentShift;
 use DB;
-
+use PDF;
 
 class StudentRegistrationController extends Controller
 {
@@ -229,6 +229,97 @@ $discount_student = DiscountStudent::where('assign_student_id',$request->id)->fi
 
 
   //End method
+  //End method
+
+
+ 	public function StudentPromotion($student_id)
+ 	{
+ 	 
+ 	  $this->data['classes']     = StudentClass::all();
+      $this->data['years']      = StudentYear::all();	
+      $this->data['groups']     = StudentGroup::all();	
+      $this->data['shifts']     = StudentShift::all();	
+
+      $this->data['editData']  = AssignStudent::with(['student','discount'])->where('student_id',$student_id)->first();
+      
+     // dd($this->data['editData']->toArray());
+      return view('backend.student.student_reg.student_promotion',$this->data);
+
+
+
+ 	}
+
+  //End method
+  //End method
+
+  public function StudentRegistrationPromotionController(Request $request,$student_id)
+   {
+   	
+   	DB::transaction(function()use($request,$student_id){
+         
+
+
+    $user                =  User::where('id',$student_id)->first();
+ 	$user->name          = $request->name;
+ 	$user->fname         = $request->fname;
+ 	$user->mname         = $request->mname;
+ 	$user->mobile        = $request->mobile;
+ 	$user->address       = $request->address;
+ 	$user->gender        = $request->gender;
+ 	$user->religion      = $request->religion;
+ 	$user->dob           = date('Y-m-d',strtotime($request->dob));
+
+ 	 if ($request->file('image')) {
+		$file = $request->file('image');
+		@unlink(public_path('uploads/student_image/'.$user->image));
+		$filename = date('YmdHi').$file->getClientOriginalName();
+		$file->move(public_path('uploads/student_image'),$filename);
+		$user['image'] = $filename;
+	}
+
+    $user->save();
+    
+
+    $assignstudent               = new AssignStudent();
+    $assignstudent->student_id   = $user->id;
+    $assignstudent->year_id      = $request->year_id;
+    $assignstudent->class_id     = $request->class_id;
+    $assignstudent->group_id     = $request->group_id;
+    $assignstudent->shift_id     = $request->shift_id;
+    
+    $assignstudent->save();
+
+
+    $discount_student                          = new DiscountStudent();
+    $discount_student->assign_student_id	   = $assignstudent->id;
+    $discount_student->fee_category_id         = '1';
+    $discount_student->discount                = $request->discount;
+
+     $discount_student->save();
+
+     }); //End DB transaction
+
+
+      Toastr::success('Student Promotion Successfully Update :)' ,'Success');
+       return redirect()->route('reg.view');
+
+   }
+
+ //End method
+  //End method
+
+
+   public function StudentDetails($student_id)
+   {
+   	  $this->data['details']  = AssignStudent::with(['student','discount'])->where('student_id',$student_id)->first();
+      
+     // dd($this->data['editData']->toArray());
+   	$pdf = PDF::loadView('backend.student.student_reg.student_pdf',$this->data);
+	$pdf->SetProtection(['copy', 'print'], '', 'pass');
+	return $pdf->stream('document.pdf');
+
+     
+   }
 
 
 

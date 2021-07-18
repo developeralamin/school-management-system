@@ -114,9 +114,12 @@
 	 <img src="{{ (!empty($value['student']['image']))? url('uploads/student_image/'.$value['student']['image']):url('uploads/no_image.jpg') }}" style="width: 60px; width: 60px;"> 
 				</td>
 				<td>{{ $value['student']['code'] }}</td>
-				<td>
-<a href="{{-- {{ route('student.group.edit',$group->id) }} --}}" class="btn btn-info">Edit</a>
-<a href="{{-- {{ route('student.group.delete',$group->id) }} --}}" class="btn btn-danger" id="delete">Delete</a>
+					<td>
+<a href="{{ route('student.reg.edit',$value->student_id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+
+<a href="{{ route('student.promotion',$value->student_id) }}" class="btn btn-danger" id=""><i class="fa fa-check"></i></a>
+
+<a target="__blank" href="{{ route('student.details',$value->student_id) }}" class="btn btn-danger" id=""><i class="fa fa-eye"></i></a>
 
 				</td>
 				 
@@ -162,8 +165,11 @@
 				</td>
 				<td>{{ $value['student']['code'] }}</td>
 				<td>
-<a href="{{ route('student.reg.edit',$value->student_id) }}" class="btn btn-info">Edit</a>
-<a href="{{-- {{ route('student.group.delete',$group->id) }} --}}" class="btn btn-danger" id="delete">Promotion</a>
+<a href="{{ route('student.reg.edit',$value->student_id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+
+<a href="{{ route('student.promotion',$value->student_id) }}" class="btn btn-danger" id=""><i class="fa fa-check"></i></a>
+
+<a target="__blank" href="{{ route('student.details',$value->student_id) }}" class="btn btn-danger" id=""><i class="fa fa-eye"></i></a>
 
 				</td>
 				 

@@ -259,7 +259,12 @@ Route::get('/student/reg/Edit/{student_id}',[StudentRegistrationController::clas
 Route::post('/student/reg/update/{student_id}',[StudentRegistrationController::class,'UpdateStudentRegistration'])->name('student.reg.update');
 
 
+Route::get('/student/promotion/{student_id}',[StudentRegistrationController::class,'StudentPromotion'])->name('student.promotion');
 
+Route::post('/promotion/student/registration/{student_id}',[StudentRegistrationPromotionController::class,'UpdateStudentRegistration'])->name('promotion.student.registration');
+
+
+Route::get('/student/details/{student_id}',[StudentRegistrationController::class,'StudentDetails'])->name('student.details');
 
 });
 
