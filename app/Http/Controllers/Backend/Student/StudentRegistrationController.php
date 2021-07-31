@@ -183,7 +183,7 @@ class StudentRegistrationController extends Controller
          
 
 
-    $user                =  User::where('id',$student_id)->first();
+  $user                =  User::where('id',$student_id)->first();
  	$user->name          = $request->name;
  	$user->fname         = $request->fname;
  	$user->mname         = $request->mname;
@@ -235,7 +235,7 @@ $discount_student = DiscountStudent::where('assign_student_id',$request->id)->fi
  	public function StudentPromotion($student_id)
  	{
  	 
- 	  $this->data['classes']     = StudentClass::all();
+ 	   $this->data['classes']     = StudentClass::all();
       $this->data['years']      = StudentYear::all();	
       $this->data['groups']     = StudentGroup::all();	
       $this->data['shifts']     = StudentShift::all();	
@@ -259,7 +259,7 @@ $discount_student = DiscountStudent::where('assign_student_id',$request->id)->fi
          
 
 
-    $user                =  User::where('id',$student_id)->first();
+  $user                =  User::where('id',$student_id)->first();
  	$user->name          = $request->name;
  	$user->fname         = $request->fname;
  	$user->mname         = $request->mname;

@@ -111,26 +111,36 @@ $route  = Route::current()->getName();
           </a>
       <ul class="treeview-menu">
     			<li><a href="{{ route('reg.view') }}"><i class="ti-more"></i>Student Registration</a></li>
-    			<li><a href=""><i class="ti-more"></i>Basic Cards</a></li>
+    			<li><a href="{{ route('roll.generate.view') }}"><i class="ti-more"></i>Roll Generate</a></li>
     			<li><a href=""><i class="ti-more"></i>Cards Color</a></li>
 		  </ul>
     </li>  
 		  
-        <li class="treeview">
-          <a href="#">
-            <i data-feather="hard-drive"></i>
-            <span>Employee Management</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="content_typography.html"><i class="ti-more"></i>Typography</a></li>
-            <li><a href="content_media.html"><i class="ti-more"></i>Media</a></li>
-            <li><a href="content_grid.html"><i class="ti-more"></i>Grid</a></li>
-          </ul>
-        </li>
+
+    <li class="treeview {{ ($prefix == '/employees')?'active' : '' }}">
+
+      <a href="#">
+        <i data-feather="hard-drive"></i>
+        <span>Employee Management</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-right pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="{{ route('employee.registration.view') }}"><i class="ti-more"></i>Employee Registration</a></li>
+
+        <li><a href="{{ route('employee.salary.view') }}"><i class="ti-more"></i>Employee Salary</a></li>
+
+        <li><a href="{{ route('employee.leave.view') }}"><i class="ti-more"></i>Employee Leave</a></li>
+
+        <li><a href="{{ route('employee.attendance.view') }}"><i class="ti-more"></i>Employee Attendance</a></li>
+
+        <li><a href=""><i class="ti-more"></i>Monthly Salary</a></li>
+      </ul>
+      
+    </li>
 		  
+
         <li class="treeview">
           <a href="#">
             <i data-feather="package"></i>
@@ -141,10 +151,7 @@ $route  = Route::current()->getName();
           </a>
           <ul class="treeview-menu">
             <li><a href="utilities_border.html"><i class="ti-more"></i>Border</a></li>
-            <li><a href="utilities_color.html"><i class="ti-more"></i>Color</a></li>
-            <li><a href="utilities_ribbons.html"><i class="ti-more"></i>Ribbons</a></li>
-            <li><a href="utilities_tab.html"><i class="ti-more"></i>Tabs</a></li>
-            <li><a href="utilities_animations.html"><i class="ti-more"></i>Animation</a></li>
+            
           </ul>
         </li>
 		  
@@ -158,13 +165,7 @@ $route  = Route::current()->getName();
           </a>
           <ul class="treeview-menu">
             <li><a href="icons_fontawesome.html"><i class="ti-more"></i>Font Awesome</a></li>
-            <li><a href="icons_glyphicons.html"><i class="ti-more"></i>Glyphicons</a></li>
-            <li><a href="icons_material.html"><i class="ti-more"></i>Material Icons</a></li>	
-            <li><a href="icons_themify.html"><i class="ti-more"></i>Themify Icons</a></li>
-            <li><a href="icons_simpleline.html"><i class="ti-more"></i>Simple Line Icons</a></li>
-            <li><a href="icons_cryptocoins.html"><i class="ti-more"></i>Cryptocoins Icons</a></li>
-            <li><a href="icons_flag.html"><i class="ti-more"></i>Flag Icons</a></li>
-            <li><a href="icons_weather.html"><i class="ti-more"></i>Weather Icons</a></li>
+           
           </ul>
         </li> 
 		  
@@ -182,14 +183,10 @@ $route  = Route::current()->getName();
             </span>
           </a>
          <ul class="treeview-menu">
-            <li><a href="icons_fontawesome.html"><i class="ti-more"></i>Font Awesome</a></li>
-            <li><a href="icons_glyphicons.html"><i class="ti-more"></i>Glyphicons</a></li>
-            <li><a href="icons_material.html"><i class="ti-more"></i>Material Icons</a></li>  
-            <li><a href="icons_themify.html"><i class="ti-more"></i>Themify Icons</a></li>
-            <li><a href="icons_simpleline.html"><i class="ti-more"></i>Simple Line Icons</a></li>
-            <li><a href="icons_cryptocoins.html"><i class="ti-more"></i>Cryptocoins Icons</a></li>
-            <li><a href="icons_flag.html"><i class="ti-more"></i>Flag Icons</a></li>
-            <li><a href="icons_weather.html"><i class="ti-more"></i>Weather Icons</a></li>
+            <li>
+              <a href="icons_fontawesome.html"><i class="ti-more"></i>Font Awesome</a>
+            </li>
+
           </ul>
         </li>  
 		  
@@ -201,7 +198,7 @@ $route  = Route::current()->getName();
 		<!-- item-->
 		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>
 		<!-- item-->
-		<a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a>
+		<a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a>
 		<!-- item-->
 		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
 	</div>

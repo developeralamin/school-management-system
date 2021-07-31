@@ -50,4 +50,8 @@ class AssignStudent extends Model
 
 
    
+  public function employee()
+   {
+      return $this->belongsTo(User::class,'employee_id','id');
+   }
 }
