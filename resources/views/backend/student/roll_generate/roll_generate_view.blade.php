@@ -20,10 +20,10 @@
 
 				  <div class="box-body">
 				
-		<form method="post" action="{{ route('roll.generate.store') }}">
+<form method="post" action="{{ route('roll.generate.store') }}">
 			@csrf
+			
 			<div class="row">
-
 
 
 <div class="col-md-4">
@@ -51,13 +51,13 @@
  		 <div class="form-group">
 		<h5>Class <span class="text-danger"> </span></h5>
 		<div class="controls">
-	 <select name="class_id" id="class_id"  required="" class="form-control">
-			<option value="" selected="" disabled="">Select Class</option>
-			 @foreach($classes as $class)
-			<option value="{{ $class->id }}">{{ $class->name }}</option>
-		 	@endforeach
+<select name="class_id" id="class_id"  required="" class="form-control">
+		<option value="" selected="" disabled="">Select Class</option>
+		 @foreach($classes as $class)
+		<option value="{{ $class->id }}">{{ $class->name }}</option>
+	 	@endforeach
 			 
-		</select>
+	</select>
 	  </div>		 
 	  </div>
 	  

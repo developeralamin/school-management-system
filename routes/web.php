@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\Setup\DesignationController;
 
 use App\Http\Controllers\Backend\Student\StudentRegistrationController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
+use App\Http\Controllers\Backend\Student\StudengRegistrationFeeController;
 
 
 use App\Http\Controllers\Backend\Employee\EmployeeRegistrationController;
@@ -299,6 +300,19 @@ Route::get('roll/getstudents',[StudentRollController::class,'GetStudents'])->nam
 
 
 Route::post('roll/store',[StudentRollController::class,'StudentStore'])->name('roll.generate.store');
+
+
+// Student Registration Fee  All Routes
+// Student Registration Fee  All Routes
+
+ 
+Route::get('regis/fee/view',[StudengRegistrationFeeController::class,'ViewRegistration'])->name('regis.fee.view');
+
+Route::get('regis/fee/classData',[StudengRegistrationFeeController::class,'RegFeeClassData'])->name('student.registration.fee.classwise.get');
+
+Route::get('regis/fee/payslip',[StudengRegistrationFeeController::class,'RegFeePayslip'])->name('student.registration.fee.payslip');
+
+
 
 
 });
