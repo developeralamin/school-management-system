@@ -116,7 +116,9 @@ $route  = Route::current()->getName();
 
           <li><a href="{{ route('regis.fee.view') }}"><i class="ti-more"></i>Registration Fee</a></li>
 
-    			<li><a href="{{ route('monthly.fee.view') }}"><i class="ti-more"></i>Monthly Fee</a></li>
+          <li><a href="{{ route('monthly.fee.view') }}"><i class="ti-more"></i>Monthly Fee</a></li>
+
+    			<li><a href="{{ route('exam.fee.view') }}"><i class="ti-more"></i>Exam Fee</a></li>
 		  </ul>
     </li>  
 		  
