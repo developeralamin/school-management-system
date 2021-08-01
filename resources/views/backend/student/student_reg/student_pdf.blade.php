@@ -40,7 +40,7 @@
      <p> Address : Thakurgaon , Govindanagor</p>
      <p>Phone : 343434343434</p>
      <p>Email : alamincsetpi@gmail.com</p>
-
+  <h4>Student Registration Page</h4>
     </td> 
   </tr>
   

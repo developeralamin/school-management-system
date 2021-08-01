@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Student\StudentRegistrationController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
 use App\Http\Controllers\Backend\Student\StudengRegistrationFeeController;
+use App\Http\Controllers\Backend\Student\MonthlyFeeController;
 
 
 use App\Http\Controllers\Backend\Employee\EmployeeRegistrationController;
@@ -313,6 +314,15 @@ Route::get('regis/fee/classData',[StudengRegistrationFeeController::class,'RegFe
 Route::get('regis/fee/payslip',[StudengRegistrationFeeController::class,'RegFeePayslip'])->name('student.registration.fee.payslip');
 
 
+// Student Monthly Fee  All Routes
+// Student Monthly Fee  All Routes
+
+ 
+Route::get('monthly/fee/view',[MonthlyFeeController::class,'ViewMonthlyFee'])->name('monthly.fee.view');
+
+Route::get('monthly/fee/classdata',[MonthlyFeeController::class,'ViewMonthlyData'])->name('student.monthly.fee.classwise.get');
+
+Route::get('monthly/fee/payslip',[MonthlyFeeController::class,'PaySlipMonthlyData'])->name('student.monthly.fee.payslip');
 
 
 });
