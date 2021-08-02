@@ -26,6 +26,7 @@ use App\Http\Controllers\Backend\Employee\EmployeeRegistrationController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendaceController;
+use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 
 
 /*
@@ -46,6 +47,8 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('admin.index');
 })->name('dashboard');
+
+
 
 Route::get('/admin/logout',[AdminController::class,'Logout'])->name('admin.logout');
 
@@ -416,6 +419,18 @@ Route::get('employee/leave/delete/{id}',[EmployeeLeaveController::class,'LeaveDe
  Route::post('employee/attendance/update/{date}',[EmployeeAttendaceController::class,'AttendanceUpdate'])->name('employee.attendance.update');
 
  Route::get('employee/attendance/details/{date}',[EmployeeAttendaceController::class,'AttendanceDetails'])->name('employee.attendance.details');
+
+
+
+// Employee Monthly Salary  All Routes
+// Employee Monthly Salary  All Routes
+
+ Route::get('employee/monthly/salary',[MonthlySalaryController::class,'ViewSalary'])->name('employee.monthly.salary');
+
+ Route::get('employee/monthly/classwisedata',[MonthlySalaryController::class,'ClasswiseData'])->name('employee.monthly.salary.get');
+
+
+ Route::get('employee/monthly/payslip/{employee_id}',[MonthlySalaryController::class,'MonthlySalaryPayslip'])->name('employee.monthly.salary.payslip');
 
 
 
