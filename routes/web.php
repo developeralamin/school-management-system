@@ -332,6 +332,10 @@ Route::get('monthly/fee/payslip',[MonthlyFeeController::class,'PaySlipMonthlyDat
 
 Route::get('exam/fee/view',[StudentExamFeeController::class,'ViewExamFee'])->name('exam.fee.view');
 
+Route::get('exam/fee/classdata',[StudentExamFeeController::class,'ViewExamTypeData'])->name('student.examy_type.fee.classwise.get');
+
+Route::get('exam/fee/payslip',[StudentExamFeeController::class,'PaySlipExamTypeData'])->name('student.examy_type.fee.payslip');
+
 
 });
 

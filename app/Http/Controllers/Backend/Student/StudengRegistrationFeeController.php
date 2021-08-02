@@ -54,7 +54,7 @@ class StudengRegistrationFeeController extends Controller
  	   $html['thsource']  .= '<th>Actions</th>';
 
  	   foreach ($allStudent as $key => $v) {
- 	     $registrationfee = FeeAmount::where('fee_category_id','1')->where('class_id',$v->class_id)->first();
+ 	     $registrationfee = FeeAmount::where('fee_category_id','3')->where('class_id',$v->class_id)->first();
 
  	     $color = 'success';
 

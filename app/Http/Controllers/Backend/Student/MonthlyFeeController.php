@@ -33,8 +33,8 @@ class MonthlyFeeController extends Controller
 
     public function ViewMonthlyData(Request $request)
     {
-    	$year_id  = $request->year_id;
- 	   $class_id = $request->class_id;
+        $year_id  = $request->year_id;
+ 	    $class_id = $request->class_id;
 
  	if($year_id !=''){
  		$where[] = ['year_id','like',$year_id.'%'];

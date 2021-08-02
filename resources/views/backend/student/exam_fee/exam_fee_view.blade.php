@@ -69,7 +69,7 @@
  		<div class="form-group">
 		<h5>Exam Type <span class="text-danger"> </span></h5>
 		<div class="controls">
-<select name="month" id="month"  required="" class="form-control">
+<select name="examy_type_id" id="examy_type_id"  required="" class="form-control">
 	<option value="" selected="" disabled="">Select Exam Type</option>
 		 @foreach($examy_type as $examy_type)
 		<option value="{{ $examy_type->id }}">{{ $examy_type->name }}</option>
@@ -138,11 +138,11 @@
   $(document).on('click','#search',function(){
     var year_id = $('#year_id').val();
     var class_id = $('#class_id').val();
-    var month = $('#month').val();
+    var examy_type_id = $('#examy_type_id').val();
      $.ajax({
-      url: "{{ route('student.monthly.fee.classwise.get')}}",
+      url: "{{ route('student.examy_type.fee.classwise.get')}}",
       type: "GET",
-      data: {'year_id':year_id,'class_id':class_id,'month':month},
+      data: {'year_id':year_id,'class_id':class_id,'examy_type_id':examy_type_id},
       beforeSend:function(data){
       },
       success: function (data) {
