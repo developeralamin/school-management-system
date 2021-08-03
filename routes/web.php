@@ -29,6 +29,10 @@ use App\Http\Controllers\Backend\Employee\EmployeeAttendaceController;
 use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 
 
+use App\Http\Controllers\Backend\Marks\MarksController;
+use App\Http\Controllers\Backend\DefaultController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -438,5 +442,22 @@ Route::get('employee/leave/delete/{id}',[EmployeeLeaveController::class,'LeaveDe
 });
 
 
+// Student Marks All Routes
+// Student Marks All Routes
+
+Route::prefix('marks')->group(function (){
+
+
+ Route::get('/marks/entry',[MarksController::class,'MarksAdd'])->name('marks.entry');
+
 
  });
+
+ Route::get('/marks/subject',[DefaultController::class,'GetSubject'])->name('marks.getsubject');
+
+ Route::get('/marks/getstudent',[DefaultController::class,'GetStudents'])->name('student.marks.getstudent');
+
+
+
+
+ });//End middleware login
