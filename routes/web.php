@@ -30,6 +30,7 @@ use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 
 
 use App\Http\Controllers\Backend\Marks\MarksController;
+use App\Http\Controllers\Backend\Marks\GradpoinController;
 use App\Http\Controllers\Backend\DefaultController;
 
 
@@ -447,6 +448,9 @@ Route::get('employee/leave/delete/{id}',[EmployeeLeaveController::class,'LeaveDe
 
 Route::prefix('marks')->group(function (){
 
+// Student Marks Entry  All Routes
+// Student Marks  Entry All Routes
+
 
  Route::get('/marks/entry',[MarksController::class,'MarksAdd'])->name('marks.entry');
 
@@ -460,7 +464,27 @@ Route::prefix('marks')->group(function (){
  Route::post('/marks/entry/updategetstudents',[MarksController::class,'MarksUpdategetstudents'])->name('student.marks.Updategetstudents');
 
 
+
+// Student Marks Grade Point  All Routes
+// Student  Marks Grade Point All Routes
+
+ Route::get('/marks/grade',[GradpoinController::class,'GradePointView'])->name('marks.grade');
+
+ Route::get('/marks/grade/add',[GradpoinController::class,'GradePointAdd'])->name('marks.grade.add');
+
+ Route::post('/marks/grade/store',[GradpoinController::class,'GradePointStore'])->name('store.marks.grade');
+
+ Route::get('/marks/grade/edit/{id}',[GradpoinController::class,'GradePointEdit'])->name('marks.grade.edit');
+
+ Route::post('/marks/grade/update/{id}',[GradpoinController::class,'GradePointUpdate'])->name('marks.grade.update');
+
+ Route::get('/marks/grade/delete/{id}',[GradpoinController::class,'GradePointDelete'])->name('marks.grade.delete');
+
+
+
  });
+
+//Student Marks DefaultController
 
  Route::get('/marks/subject',[DefaultController::class,'GetSubject'])->name('marks.getsubject');
 
