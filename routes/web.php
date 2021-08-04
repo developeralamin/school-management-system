@@ -450,12 +450,21 @@ Route::prefix('marks')->group(function (){
 
  Route::get('/marks/entry',[MarksController::class,'MarksAdd'])->name('marks.entry');
 
+ Route::post('/marks/entry/store',[MarksController::class,'MarksStore'])->name('marks.entry.store');
+
+ Route::get('/marks/entry/edit',[MarksController::class,'MarksEdit'])->name('marks.entry.edit');
+
+ Route::get('/marks/entry/Editgetstudents',[MarksController::class,'MarksEditgetstudents'])->name('student.marks.Editgetstudents');
+
+
+ Route::post('/marks/entry/updategetstudents',[MarksController::class,'MarksUpdategetstudents'])->name('student.marks.Updategetstudents');
+
 
  });
 
  Route::get('/marks/subject',[DefaultController::class,'GetSubject'])->name('marks.getsubject');
 
- Route::get('/marks/getstudent',[DefaultController::class,'GetStudents'])->name('student.marks.getstudent');
+ Route::get('/marks/getstudent',[DefaultController::class,'GetStudents'])->name('student.marks.getstudents');
 
 
 

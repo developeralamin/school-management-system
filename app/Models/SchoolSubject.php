@@ -9,4 +9,6 @@ class SchoolSubject extends Model
 {
     use HasFactory;
        protected $fillable = ['name'];
+
+
 }

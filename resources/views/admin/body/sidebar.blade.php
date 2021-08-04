@@ -165,7 +165,9 @@ $route  = Route::current()->getName();
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('marks.entry') }}"><i class="ti-more"></i>Marks Entry</a></li>
+            <li class="{{ ($route == 'marks.entry')?'active':'' }}"><a href="{{ route('marks.entry') }}"><i class="ti-more"></i>Marks Entry</a></li>
+
+            <li class="{{ ($route == 'marks.entry.edit')?'active':'' }}"><a href="{{ route('marks.entry.edit') }}"><i class="ti-more"></i>Marks Edit</a></li>
             
           </ul>
         </li>

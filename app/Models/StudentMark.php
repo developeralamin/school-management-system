@@ -7,5 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class StudentMark extends Model
 {
-    use HasFactory;
+    public function student()
+   {
+      return $this->belongsTo(User::class,'student_id','id');
+   }
+
+     public function assign_subject(){
+    	return $this->belongsTo(AssignSubject::class, 'assign_subject_id','id');
+    }
+    
+  public function student_subject()
+   {
+      return $this->belongsTo(SchoolSubject::class,'subject_id','id');
+   }
+    
 }
