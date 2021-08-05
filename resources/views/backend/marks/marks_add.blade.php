@@ -15,7 +15,7 @@
 <div class="col-12">
 <div class="box bb-3 border-warning">
 				  <div class="box-header">
-					<h4 class="box-title">Student <strong>Marsk Entry</strong></h4>
+					<h4 class="box-title">Student <strong>Mark Entry</strong></h4>
 				  </div>
 
 				  <div class="box-body">

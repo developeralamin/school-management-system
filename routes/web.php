@@ -34,6 +34,10 @@ use App\Http\Controllers\Backend\Marks\GradpoinController;
 use App\Http\Controllers\Backend\DefaultController;
 
 
+use App\Http\Controllers\Backend\Accounts\StudentFeeAccountController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -490,6 +494,24 @@ Route::prefix('marks')->group(function (){
 
  Route::get('/marks/getstudent',[DefaultController::class,'GetStudents'])->name('student.marks.getstudents');
 
+
+// Student Account Management Routes
+// Student Account Management Routes
+
+Route::prefix('accounts')->group(function (){
+
+Route::get('/student/account/fee',[StudentFeeAccountController::class,'ViewAccountFee'])->name('student.account.fee');
+
+Route::get('/student/fee/add',[StudentFeeAccountController::class,'AddAccountFee'])->name('student.fee.add');
+
+Route::get('/student/fee/getstudent',[StudentFeeAccountController::class,'GetstudentAccountFee'])->name('account.fee.getstudent');
+
+
+Route::post('/student/fee/store',[StudentFeeAccountController::class,'GetstudentAccountStore'])->name('account.fee.store');
+
+
+
+ });//End Account Management
 
 
 

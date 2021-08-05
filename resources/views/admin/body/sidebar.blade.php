@@ -175,7 +175,7 @@ $route  = Route::current()->getName();
 
         </li>
 		  
-		<li class="treeview">
+		<li class="treeview {{ ($prefix == '/accounts')?'active' : '' }}">
           <a href="#">
             <i data-feather="edit-2"></i>
             <span>Accounts Management</span>
@@ -184,7 +184,7 @@ $route  = Route::current()->getName();
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="icons_fontawesome.html"><i class="ti-more"></i>Font Awesome</a></li>
+            <li><a href="{{ route('student.account.fee') }}"><i class="ti-more"></i>Student Fee</a></li>
            
           </ul>
         </li> 
