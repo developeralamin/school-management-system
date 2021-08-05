@@ -67,6 +67,9 @@ if($accountstudentfees !=null) {
  }else{
  	$checked = '';
  }  	 	 
+
+
+ 
  	$color = 'success';
  	$html[$key]['tdsource']  = '<td>'.$std['student']['id_no']. '<input type="hidden" name="fee_category_id" value= " '.$fee_category_id.' " >'.'</td>';
 
@@ -119,17 +122,29 @@ if($accountstudentfees !=null) {
 
       	
       }//end if condtiotion
+
       if (!empty(@$data) || empty($checkdata)) {
-      	$notification = array(
-    		'message' => 'Well Done Data Updated Successfully',
+
+    	$notification = array(
+    		'message' => 'Well Done Data Successfully Updated',
     		'alert-type' => 'success'
     	);
 
     	return redirect()->route('student.account.fee')->with($notification);
-      }
+    	}
 
-	}
-//End method
+    	else{
+
+    		$notification = array(
+    		'message' => 'Sorry Data not Saved',
+    		'alert-type' => 'error'
+    	);
+
+    	return redirect()->back()->with($notification);
+
+    	} 
+
+    } // end method 
 
 
 

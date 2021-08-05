@@ -35,6 +35,8 @@ use App\Http\Controllers\Backend\DefaultController;
 
 
 use App\Http\Controllers\Backend\Accounts\StudentFeeAccountController;
+use App\Http\Controllers\Backend\Accounts\EmployeeAccountSalaryController;
+use App\Http\Controllers\Backend\Accounts\OtherCostController;
 
 
 
@@ -508,6 +510,27 @@ Route::get('/student/fee/getstudent',[StudentFeeAccountController::class,'Getstu
 
 
 Route::post('/student/fee/store',[StudentFeeAccountController::class,'GetstudentAccountStore'])->name('account.fee.store');
+
+
+// Employee Account Management Routes
+// Employee Account Management Routes
+
+Route::get('/employee/account/fee',[EmployeeAccountSalaryController::class,'ViewAccountFee'])->name('employee.account.fee');
+
+Route::get('/employee/salary/add',[EmployeeAccountSalaryController::class,'AddEmployeeAccountFee'])->name('employee.salary.add');
+
+Route::get('/empoyee/salary/getemployee',[EmployeeAccountSalaryController::class,'getemployeeSalary'])->name('account.fee.getemployee');
+
+Route::post('/empoyee/salary/store',[EmployeeAccountSalaryController::class,'getemployeeSalaryStore'])->name('account.fee.store.employee');
+
+//Accounts Others Cost All route
+//Accounts Others Cost All route
+
+Route::get('/account/others/cost',[OtherCostController::class,'OtherAccountCostView'])->name('account.others.cost');
+
+Route::get('/account/others/fee/cost',[OtherCostController::class,'OtherAccountCostAdd'])->name('account.other.cost.fee.add');
+
+Route::post('/account/others/fee/store',[OtherCostController::class,'OtherAccountCosStore'])->name('others.cost.store');
 
 
 

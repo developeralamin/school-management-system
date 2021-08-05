@@ -16,8 +16,8 @@
 
 	 <div class="box">
   <div class="box-header with-border">
-	<h3 class="box-title">Student Fee List</h3>
-	<a href="{{ route('student.fee.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add/Edit Student Fee</a>			  
+	<h3 class="box-title">Account Other Cost List</h3>
+	<a href="{{ route('account.other.cost.fee.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Account Other Cost</a>			  
 				</div>
 				<!-- /.box-header -->
 		<div class="box-body">
@@ -26,13 +26,11 @@
 		<thead>
 			<tr>
 				<th width="5%">SL</th>  
-				<th>ID NO</th> 
-				<th>Name</th> 
-				<th>Class</th>
-				<th>Year</th>
-				<th>Fee Type </th>
+				<th>Date</th> 
 				<th>Amount</th>
-				<th>Date</th>
+				<th>Description</th>
+				<th>Image</th>
+				<th>Actions</th>
 				 
 			</tr>
 		</thead>
@@ -40,18 +38,19 @@
 			@foreach($allData as $key => $value )
 			<tr>
 				<td>{{ $key+1 }}</td>
-				<td> {{ $value['student']['id_no'] }}</td>		
-				<td> {{ $value['student']['name'] }}</td>		
-				<td> {{ $value['student_class']['name'] }}</td>		
-				<td> {{ $value['student_year']['name'] }}</td>		
-				<td> {{ $value['fee_category']['name'] }}</td>		
+				<td> {{ date('M Y',strtotime($value->date)) }}</td>			
 				<td> {{ $value->amount }}</td>		
-				<td> {{ date('M Y',strtotime($value->date)) }}</td>		
+				<td> {{ $value->description }}</td>		
+				<td> {{ $value->description }}</td>		
+			<td>
+	 <img src="{{ (!empty($value->image))? url('uploads/user_image/'.$value->image):url('uploads/no_image.jpg') }}" style="width: 60px; width: 60px;"> 
+			</td>
 	
 				<td>
-{{-- <a href="" class="btn btn-info">Edit</a>
+<a href="" class="btn btn-info">Edit</a>
 
-<a href="" class="btn btn-danger" id="delete">Delete</a> --}}
+<a href="" class="btn btn-danger" id="delete">Delete</a>
+
 
 
 				</td>

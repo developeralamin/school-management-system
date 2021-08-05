@@ -46,9 +46,6 @@ class AccountStudentFee extends Model
       return $this->belongsTo(FeeCategory::class,'fee_category_id','id');
    }
 
-  public function employee()
-   {
-      return $this->belongsTo(User::class,'employee_id','id');
-   }
+ 
     
 }
