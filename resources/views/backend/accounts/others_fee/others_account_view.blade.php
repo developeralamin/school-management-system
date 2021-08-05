@@ -38,18 +38,18 @@
 			@foreach($allData as $key => $value )
 			<tr>
 				<td>{{ $key+1 }}</td>
-				<td> {{ date('M Y',strtotime($value->date)) }}</td>			
+				<td> {{ ($value->date) }}</td>			
 				<td> {{ $value->amount }}</td>		
 				<td> {{ $value->description }}</td>		
 				<td> {{ $value->description }}</td>		
 			<td>
-	 <img src="{{ (!empty($value->image))? url('uploads/user_image/'.$value->image):url('uploads/no_image.jpg') }}" style="width: 60px; width: 60px;"> 
+	  <img src="{{ (!empty($value->image))? url('uploads/other_cost_image/'.$value->image):url('uploads/no_image.jpg') }}" style="width: 60px; width: 60px;"> 
 			</td>
 	
 				<td>
-<a href="" class="btn btn-info">Edit</a>
+<a href="{{ route('others.cost.edit',$value->id) }}" class="btn btn-info">Edit</a>
 
-<a href="" class="btn btn-danger" id="delete">Delete</a>
+<a href="{{ route('others.cost.delete',$value->id) }}" class="btn btn-danger" id="delete">Delete</a>
 
 
 

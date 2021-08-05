@@ -21,7 +21,7 @@
 			  <div class="row">
 				<div class="col">
 
-	 <form method="post" action="{{ route('others.cost.store') }}" 
+	 <form method="post" action="{{ route('others.cost.update',$editData->id) }}" 
 	 enctype="multipart/form-data">
 
 	 	@csrf
@@ -35,7 +35,7 @@
 			<div class="form-group">
 				<h5>Amount <span class="text-danger">*</span></h5>
 			<div class="controls">
-			 <input type="text" name="amount"  class="form-control" > 
+			 <input type="text" name="amount" value="{{ $editData->amount }}" class="form-control" > 
 				  
 			</div>
 				 
@@ -46,7 +46,7 @@
 			<div class="form-group">
 				<h5>Date <span class="text-danger">*</span></h5>
 			<div class="controls">
-				 <input type="date" name="date"  class="form-control">  
+				 <input type="date" name="date" value="{{ $editData->date }}"  class="form-control">  
 			</div>
 				 
 			</div>
@@ -63,7 +63,7 @@
 		
      <div class="controls">
 	 <img id="showimage"
-	   src="{{url('uploads/no_image.jpg') }}" style="width: 100px;height: 100px;border: 1px solid #000000" alt="User Avatar"> 
+	   src="{{ (!empty($editData->image))? url('uploads/other_cost_image/'.$editData->image):url('uploads/no_image.jpg') }}" style="width: 100px;height: 100px;border: 1px solid #000000" alt="User Avatar"> 
 	</div>
 
 	</div><!-- End Col Md-6 -->
@@ -83,7 +83,7 @@
  	<div class="form-group">
 		 <h5>Description <span class="text-danger">*</span></h5>
 				<div class="controls">
-		 <textarea name="description" id="description" class="form-control"  placeholder="Textarea text" aria-invalid="false"></textarea>
+		 <textarea name="description" id="description" class="form-control"  placeholder="Textarea text"   aria-invalid="false">{{ $editData->description }}</textarea>
 				<div class="help-block"></div></div>
 			</div>
 				 	

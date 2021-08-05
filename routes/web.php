@@ -523,6 +523,8 @@ Route::get('/empoyee/salary/getemployee',[EmployeeAccountSalaryController::class
 
 Route::post('/empoyee/salary/store',[EmployeeAccountSalaryController::class,'getemployeeSalaryStore'])->name('account.fee.store.employee');
 
+
+
 //Accounts Others Cost All route
 //Accounts Others Cost All route
 
@@ -531,6 +533,12 @@ Route::get('/account/others/cost',[OtherCostController::class,'OtherAccountCostV
 Route::get('/account/others/fee/cost',[OtherCostController::class,'OtherAccountCostAdd'])->name('account.other.cost.fee.add');
 
 Route::post('/account/others/fee/store',[OtherCostController::class,'OtherAccountCosStore'])->name('others.cost.store');
+
+Route::get('/account/others/fee/edit/{id}',[OtherCostController::class,'OtherAccountCosedit'])->name('others.cost.edit');
+
+Route::post('/account/others/fee/update/{id}',[OtherCostController::class,'OtherAccountCosUpdate'])->name('others.cost.update');
+
+Route::get('/account/others/fee/delete/{id}',[OtherCostController::class,'OtherAccountCosdelete'])->name('others.cost.delete');
 
 
 
