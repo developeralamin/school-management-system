@@ -39,6 +39,9 @@ use App\Http\Controllers\Backend\Accounts\EmployeeAccountSalaryController;
 use App\Http\Controllers\Backend\Accounts\OtherCostController;
 
 
+use App\Http\Controllers\Backend\Report\ProfitController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -497,6 +500,7 @@ Route::prefix('marks')->group(function (){
  Route::get('/marks/getstudent',[DefaultController::class,'GetStudents'])->name('student.marks.getstudents');
 
 
+
 // Student Account Management Routes
 // Student Account Management Routes
 
@@ -544,6 +548,23 @@ Route::get('/account/others/fee/delete/{id}',[OtherCostController::class,'OtherA
 
  });//End Account Management
 
+
+
+//Reports Management All route
+//Reports Management All route
+
+
+Route::prefix('reports')->group(function (){
+
+Route::get('/monthly/profit/view',[ProfitController::class,'ProfitReportView'])->name('monthly.profit.view');
+
+Route::get('/monthly/profit/datawise',[ProfitController::class,'ProfitReportdatawiseGet'])->name('report.profit.datawise.get');
+
+Route::get('/monthly/profit/pdf',[ProfitController::class,'ProfitReportdatawisepdf'])->name('report.profit.pdf');
+
+
+
+ });//End Report controller
 
 
  });//End middleware login

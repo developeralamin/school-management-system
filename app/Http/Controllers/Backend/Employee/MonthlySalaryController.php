@@ -78,7 +78,7 @@ class MonthlySalaryController extends Controller
 
    public function MonthlySalaryPayslip(Request $request , $employee_id)
    {
-  		$id = EmployeeAttendance::where('employee_id',$employee_id)->first();
+  	$id = EmployeeAttendance::where('employee_id',$employee_id)->first();
   		$date = date('Y-m',strtotime($id->date));
     	 if ($date !='') {
     	 	$where[] = ['date','like',$date.'%'];

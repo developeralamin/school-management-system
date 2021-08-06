@@ -200,21 +200,38 @@ $route  = Route::current()->getName();
 		  
 		{{-- <li class="header nav-small-cap">Repo</li>		   --}}
 		  
-        <li class="treeview">
-          <a href="#">
-            <i data-feather="layers"></i>
-			<span>Reports Management</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-         <ul class="treeview-menu">
-            <li>
-              <a href="icons_fontawesome.html"><i class="ti-more"></i>Font Awesome</a>
-            </li>
+  <li class="treeview {{ ($prefix == '/reports')?'active' : '' }}">
+    <a href="#">
+      <i data-feather="layers"></i>
+<span>Reports Management</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-right pull-right"></i>
+      </span>
+    </a>
+   <ul class="treeview-menu">
+      <li class="{{ ($route == 'monthly.profit.view')?'active':'' }}">
+        <a href="{{ route('monthly.profit.view') }}"><i class="ti-more"></i>Monthly/Yearly Profit</a>
+      </li>
 
-          </ul>
-        </li>  
+       <li>
+        <a href=""><i class="ti-more"></i>Marks Sheet</a>
+      </li>
+
+     <li>
+        <a href=""><i class="ti-more"></i>Attendance Report</a>
+      </li>
+
+      <li>
+        <a href=""><i class="ti-more"></i>All Student Result</a>
+      </li>
+
+      <li>
+        <a href=""><i class="ti-more"></i>Student ID Card</a>
+      </li>
+
+
+    </ul>
+  </li>  
 		  
 
       </ul>
