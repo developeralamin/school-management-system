@@ -20,5 +20,23 @@ class StudentMark extends Model
    {
       return $this->belongsTo(SchoolSubject::class,'subject_id','id');
    }
-    
+
+  public function year()
+   {
+      return $this->belongsTo(StudentYear::class,'year_id','id');
+   }
+
+ public function student_class()
+   {
+      return $this->belongsTo(StudentClass::class,'class_id','id');
+   }
+
+
+ public function exam_type()
+   {
+      return $this->belongsTo(ExamType::class,'exam_type_id','id');
+   }
+
+
+
 }

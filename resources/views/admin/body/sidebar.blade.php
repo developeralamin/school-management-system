@@ -213,8 +213,8 @@ $route  = Route::current()->getName();
         <a href="{{ route('monthly.profit.view') }}"><i class="ti-more"></i>Monthly/Yearly Profit</a>
       </li>
 
-       <li>
-        <a href=""><i class="ti-more"></i>Marks Sheet</a>
+       <li class="{{ ($route == 'marksheet.genereate.view')?'active':'' }}">
+        <a href="{{ route('marksheet.genereate.view') }}"><i class="ti-more"></i>Marks Sheet</a>
       </li>
 
      <li>

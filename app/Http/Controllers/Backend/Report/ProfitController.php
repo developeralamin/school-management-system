@@ -53,8 +53,8 @@ class ProfitController extends Controller
     	 $html['tdsource']  .= '<td>'.$total_cost.'</td>';
     	 $html['tdsource']  .= '<td>'.$profit.'</td>';
     	 $html['tdsource'] .='<td>';
-    	 	$html['tdsource'] .='<a class="btn btn-sm btn-'.$color.'" title="PDF" target="_blanks" href="'.route("report.profit.pdf").'?start_date='.$sdate.'&end_date='.$edate.'">Pay Slip</a>';
-    	 	$html['tdsource'] .= '</td>';
+    	 $html['tdsource'] .='<a class="btn btn-sm btn-'.$color.'" title="PDF" target="_blanks" href="'.route("report.profit.pdf").'?start_date='.$sdate.'&end_date='.$edate.'">Pay Slip</a>';
+    	 $html['tdsource'] .= '</td>';
     	
     	return response()->json(@$html); 
     }
@@ -64,10 +64,10 @@ class ProfitController extends Controller
 	public function ProfitReportdatawisepdf(Request $request)
 	{
 
-	  $data['start_date'] = date('Y-m',strtotime($request->start_date));
+	  $data['start_date']  = date('Y-m',strtotime($request->start_date));
 		 $data['end_date'] = date('Y-m',strtotime($request->end_date));
-    	 $data['sdate'] = date('Y-m-d',strtotime($request->start_date));
-    	 $data['edate'] = date('Y-m-d',strtotime($request->end_date));
+    	 $data['sdate']    = date('Y-m-d',strtotime($request->start_date));
+    	 $data['edate']    = date('Y-m-d',strtotime($request->end_date));
 
     $pdf = PDF::loadView('backend.reports.profit.profit_pdf', $data);
 	$pdf->SetProtection(['copy', 'print'], '', 'pass');

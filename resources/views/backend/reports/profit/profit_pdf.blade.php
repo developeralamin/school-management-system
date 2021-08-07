@@ -28,7 +28,7 @@
   <tr>
    <td><h2>
   <?php $image_path = '/uploads/easyschool.png'; ?>
-  <img src="{{ public_path() . $image_path }}" width="200" height="100"></br>
+<img src="{{ public_path() . $image_path }}" width="200" height="100"></br>
       Easy School Learning Point
     </h2></td>
      <td><h2>Easy School LP</h2>

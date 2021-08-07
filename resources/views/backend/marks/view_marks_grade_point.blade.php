@@ -48,9 +48,9 @@
 				<td> {{ $mark_point->start_point }} -  {{ $mark_point->end_point }}</td>	
 				<td> {{ $mark_point->remarks }}</td>
 				<td>
-<a href="{{ route('marks.grade.edit',$mark_point->id) }}" class="btn btn-info">Edit</a>
+<a href="{{ route('marks.grade.edit',$mark_point->id) }}" class="btn   btn-sm btn-info">Edit</a>
 
-<a href="{{ route('marks.grade.delete',$mark_point->id) }}" class="btn btn-danger" id="delete">Delete</a>
+<a href="{{ route('marks.grade.delete',$mark_point->id) }}" class="btn btn-danger btn-sm" id="delete">Delete</a>
 
 
 				</td>

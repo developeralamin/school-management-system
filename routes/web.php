@@ -40,6 +40,7 @@ use App\Http\Controllers\Backend\Accounts\OtherCostController;
 
 
 use App\Http\Controllers\Backend\Report\ProfitController;
+use App\Http\Controllers\Backend\Report\MarkSheetController;
 
 
 
@@ -556,11 +557,24 @@ Route::get('/account/others/fee/delete/{id}',[OtherCostController::class,'OtherA
 
 Route::prefix('reports')->group(function (){
 
+//Monthly/Yearly Profict All Route
+//Monthly/Yearly Profict All Route
+
 Route::get('/monthly/profit/view',[ProfitController::class,'ProfitReportView'])->name('monthly.profit.view');
 
 Route::get('/monthly/profit/datawise',[ProfitController::class,'ProfitReportdatawiseGet'])->name('report.profit.datawise.get');
 
 Route::get('/monthly/profit/pdf',[ProfitController::class,'ProfitReportdatawisepdf'])->name('report.profit.pdf');
+
+
+// MarkSheet Controller All Route
+// MarkSheet Controller All Route
+
+Route::get('/marksheet/genereate/view',[MarkSheetController::class,'MarkSheetView'])->name('marksheet.genereate.view');
+
+Route::get('/report/marksheet/get',[MarkSheetController::class,'MarkSheetGet'])->name('report.marksheet.get');
+
+
 
 
 
