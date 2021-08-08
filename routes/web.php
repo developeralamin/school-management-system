@@ -41,6 +41,8 @@ use App\Http\Controllers\Backend\Accounts\OtherCostController;
 
 use App\Http\Controllers\Backend\Report\ProfitController;
 use App\Http\Controllers\Backend\Report\MarkSheetController;
+use App\Http\Controllers\Backend\Report\EmployeeAttendanceReport;
+use App\Http\Controllers\Backend\Report\ResultReportController;
 
 
 
@@ -575,6 +577,21 @@ Route::get('/marksheet/genereate/view',[MarkSheetController::class,'MarkSheetVie
 Route::get('/report/marksheet/get',[MarkSheetController::class,'MarkSheetGet'])->name('report.marksheet.get');
 
 
+
+// Employee Report Controller All Route
+// Employee Report Controller All Route
+
+Route::get('/attendance/report/view',[EmployeeAttendanceReport::class,'AttendanceReportView'])->name('attendance.report.view');
+
+Route::get('/attendance/report/attendance/',[EmployeeAttendanceReport::class,'AttendanceReportGetView'])->name('report.employee.attendance.get');
+
+
+// Student Result Controller All Route
+// Student Result Controller All Route
+
+Route::get('/student/result/view',[ResultReportController::class,'ResultReportView'])->name('student.result.view');
+
+Route::get('/student/report/view',[ResultReportController::class,'ResultReportStore'])->name('result.report.get');
 
 
 

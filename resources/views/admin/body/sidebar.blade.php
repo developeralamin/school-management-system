@@ -214,15 +214,15 @@ $route  = Route::current()->getName();
       </li>
 
        <li class="{{ ($route == 'marksheet.genereate.view')?'active':'' }}">
-        <a href="{{ route('marksheet.genereate.view') }}"><i class="ti-more"></i>Marks Sheet</a>
+        <a href="{{ route('marksheet.genereate.view') }}"><i class="ti-more"></i>MarksSheet Generate</a>
       </li>
 
-     <li>
-        <a href=""><i class="ti-more"></i>Attendance Report</a>
+     <li class="{{ ($route == 'attendance.report.view')?'active':'' }}">
+        <a href="{{ route('attendance.report.view') }}"><i class="ti-more"></i>Employee Attendance Report</a>
       </li>
 
-      <li>
-        <a href=""><i class="ti-more"></i>All Student Result</a>
+      <li class="{{ ($route == 'student.result.report.view')?'active':'' }}">
+        <a href="{{ route('student.result.view') }}"><i class="ti-more"></i>All Student Result</a>
       </li>
 
       <li>

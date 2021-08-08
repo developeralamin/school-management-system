@@ -258,7 +258,7 @@ $grade_point_avg = (float)$total_point/(float)$total_subject;
  
 <div class="row"> <!--  6th row start -->
   <div class="col-md-4">
-    <hr style="border: solid 1px; widows: 60%; color: #ffffff; margin-bottom: -3px;">
+   <hr style="border: solid 1px; widows: 60%; color: #ffffff; margin-bottom: -3px;">
     <div class="text-center">Teacher</div>
   </div>
 
