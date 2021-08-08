@@ -57,6 +57,11 @@ use App\Http\Controllers\Backend\Report\ResultReportController;
 |
 */
 
+
+Route::group(['middleware' => 'prevent-back-history'],function(){
+  
+
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -599,3 +604,6 @@ Route::get('/student/report/view',[ResultReportController::class,'ResultReportSt
 
 
  });//End middleware login
+
+
+});//End Laravel Prevent Browser Back Button After LogoutPost navigation≪≫
