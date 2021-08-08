@@ -225,8 +225,8 @@ $route  = Route::current()->getName();
         <a href="{{ route('student.result.view') }}"><i class="ti-more"></i>All Student Result</a>
       </li>
 
-      <li>
-        <a href=""><i class="ti-more"></i>Student ID Card</a>
+      <li class="{{ ($route == 'student.IdCard.view')?'active':'' }}">
+        <a href="{{ route('student.IdCard.view') }}"><i class="ti-more"></i>Student ID Card</a>
       </li>
 
 

@@ -64,6 +64,43 @@ class ResultReportController extends Controller
 
     }//end method
 
+   public function StudentCardView()
+   {
+        $this->data['years']       = StudentYear::all();
+        $this->data['classes']     = StudentClass::all();
+
+        return view('backend.reports.student_id_card.student_id_card',$this->data); 
+   }
+
+//End method
+
+   public function StudentCardStore(Request $request)
+   {
+         $year_id  = $request->year_id;
+         $class_id = $request->class_id;
+
+    $StudentCard =AssignStudent::where('year_id',$year_id)->where('class_id',$class_id)->first();
+      
+    if ($StudentCard == true) {
+         $this->data['allData'] =AssignStudent::where('year_id',$year_id)->where('class_id',$class_id)->get();
+         // dd($this->data)->toArray();
+
+   $pdf = PDF::loadView('backend.reports.student_id_card.student_id_card_pdf', $this->data);
+    $pdf->SetProtection(['copy', 'print'], '', 'pass');
+    return $pdf->stream('document.pdf');
+
+    }else{
+        $notification = array(
+            'message' => 'Sorry These Criteria Donse not match',
+            'alert-type' => 'error'
+        );
+
+        return redirect()->back()->with($notification);
+    }//end if condition
+
+
+
+   }//End method
 
 
 

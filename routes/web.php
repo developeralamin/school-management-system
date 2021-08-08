@@ -600,6 +600,15 @@ Route::get('/student/report/view',[ResultReportController::class,'ResultReportSt
 
 
 
+//Student ID Card All Route
+//Student ID Card All Route
+Route::get('/student/IdCard/view',[ResultReportController::class,'StudentCardView'])->name('student.IdCard.view');
+
+Route::get('/student/IdCard/store',[ResultReportController::class,'StudentCardStore'])->name('student.id.card.get');
+
+
+
+
  });//End Report controller
 
 
