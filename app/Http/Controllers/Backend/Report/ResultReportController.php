@@ -38,7 +38,7 @@ class ResultReportController extends Controller
     {
     	  $year_id        =$request->year_id;
     	  $class_id       =$request->class_id;
-    	  $exam_type_id  =$request->exam_type_id;
+    	  $exam_type_id   =$request->exam_type_id;
 
     $singleResult =StudentMark::where('year_id',$year_id)->where('class_id',$class_id)->where('exam_type_id',$exam_type_id)->get();
 
@@ -54,7 +54,7 @@ class ResultReportController extends Controller
     }else{
     	$notification = array(
     		'message' => 'Sorry These Criteria Donse not match',
-    		'alert-type' => 'error'
+    		'alert-type' => 'warning'
     	);
 
     	return redirect()->back()->with($notification);

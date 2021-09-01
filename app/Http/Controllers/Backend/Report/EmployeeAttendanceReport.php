@@ -55,13 +55,13 @@ $pdf = PDF::loadView('backend.reports.attend_report.attend_report_pdf', $this->d
 	$pdf->SetProtection(['copy', 'print'], '', 'pass');
 	return $pdf->stream('document.pdf');
 
+    }
 
-
-    }else{
-    	$notification = array(
-    		'message' => 'Sorry These Criteria Donse not match',
-    		'alert-type' => 'error'
-    	);
+    else{
+    	$notification = array([
+    		'message' => 'Sorry These Criteria Does not match',
+    		'alert-type' => 'error',
+    	]);
 
     	return redirect()->back()->with($notification);
        }
