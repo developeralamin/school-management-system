@@ -128,8 +128,8 @@
 													<div id="chart41"></div>
 												</div>
 												<div>
-													<h5>Top Order</h5>
-													<h4 class="text-white my-0 font-weight-500">$39k</h4>
+													<h5>Total Cost</h5>
+													<h4 class="text-white my-0 font-weight-500">{{ $total_cost}}</h4>
 												</div>
 											</div>
 										</div>
@@ -143,8 +143,8 @@
 													<div id="chart42"></div>
 												</div>
 												<div>
-													<h5>Average Order</h5>
-													<h4 class="text-white my-0 font-weight-500">$24k</h4>
+													<h5>Total Profit </h5>
+													<h4 class="text-white my-0 font-weight-500">{{$total_profit}}</h4>
 												</div>
 											</div>
 										</div>
