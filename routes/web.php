@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\PorfileController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
@@ -67,7 +68,10 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('admin.index');
+  
+ Route::get('/admin/view',[DashboardController::class,'AdminView']);
+  return view('admin.index'); 
+
 })->name('dashboard');
 
 

@@ -20,7 +20,7 @@
 			    </a>
 			</li>
 			<li class="btn-group nav-item d-none d-xl-inline-block">
-				<a href="calendar.html" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
+				<a href="#" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
 					<i class="ti-calendar"></i>
 			    </a>
 			</li>
@@ -38,7 +38,7 @@
 		  <!-- Notifications -->
 		  <li class="dropdown notifications-menu">
 			<a href="#" class="waves-effect waves-light rounded dropdown-toggle" data-toggle="dropdown" title="Notifications">
-			  <i class="ti-bell"></i>
+			 {{--  <i class="ti-bell"></i> --}}
 			</a>
 			<ul class="dropdown-menu animated bounceIn">
 
@@ -48,16 +48,16 @@
 						<div>
 							<h4 class="mb-0 mt-0">Notifications</h4>
 						</div>
-						<div>
+						{{-- <div>
 							<a href="#" class="text-danger">Clear All</a>
-						</div>
+						</div> --}}
 					</div>
 				</div>
 			  </li>
 
 			  <li>
 				<!-- inner menu: contains the actual data -->
-				<ul class="menu sm-scrol">
+				{{-- <ul class="menu sm-scrol">
 				  <li>
 					<a href="#">
 					  <i class="fa fa-users text-info"></i> Curabitur id eros quis nunc suscipit blandit.
@@ -93,11 +93,11 @@
 					  <i class="fa fa-user text-success"></i> Nullam euismod dolor ut quam interdum, at scelerisque ipsum imperdiet.
 					</a>
 				  </li>
-				</ul>
+				</ul> --}}
 			  </li>
-			  <li class="footer">
+			 {{--  <li class="footer">
 				  <a href="#">View all</a>
-			  </li>
+			  </li> --}}
 			</ul>
 		  </li>	
 		  
@@ -114,9 +114,9 @@
 			</a>
 			<ul class="dropdown-menu animated flipInX">
 			  <li class="user-body">
-				 <a class="dropdown-item" href="#"><i class="ti-user text-muted mr-2"></i> Profile</a>
-				 <a class="dropdown-item" href="#"><i class="ti-wallet text-muted mr-2"></i> My Wallet</a>
-				 <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a>
+				 <a class="dropdown-item" href="{{ route('profile.view') }}"><i class="ti-user text-muted mr-2"></i> Profile</a>
+				{{--  <a class="dropdown-item" href="#"><i class="ti-wallet text-muted mr-2"></i> My Wallet</a>
+				 <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a> --}}
 				 <div class="dropdown-divider"></div>
 				 <a class="dropdown-item" href="{{ route('admin.logout') }}"><i class="ti-lock text-muted mr-2"></i> Logout</a>
 			  </li>

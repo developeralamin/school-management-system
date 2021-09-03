@@ -2,7 +2,20 @@
 
 @section('admin')
 
+@php
 
+  $count_student = DB::table('users')->where('usertype','Student')->count();
+  $count_employee = DB::table('users')->where('usertype','Employee')->count();
+  $stuednt_fee = DB::table('account_student_fees')->sum('amount');
+
+  $count_employee_salary = DB::table('employee_account_salaries')->sum('amount');
+  $count_other_cost = DB::table('other_costs')->sum('amount');
+
+   $total_cost = $count_employee_salary+ $count_other_cost;
+
+  $total_profit= $stuednt_fee- $total_cost;
+
+@endphp
 
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -18,8 +31,8 @@
 								<i class="text-primary mr-0 font-size-24 mdi mdi-account-multiple"></i>
 							</div>
 							<div>
-								<p class="text-mute mt-20 mb-0 font-size-16">New Customers</p>
-								<h3 class="text-white mb-0 font-weight-500">3400 <small class="text-success"><i class="fa fa-caret-up"></i> +2.5%</small></h3>
+								<p class="text-mute mt-20 mb-0 font-size-16">Total Student</p>
+								<h3 class="text-white mb-0 font-weight-500">{{$count_student}} <small class="text-success"><i class="fa fa-caret-up"></i></small></h3>
 							</div>
 						</div>
 					</div>
@@ -28,15 +41,35 @@
 					<div class="box overflow-hidden pull-up">
 						<div class="box-body">							
 							<div class="icon bg-warning-light rounded w-60 h-60">
-								<i class="text-warning mr-0 font-size-24 mdi mdi-car"></i>
+								<i class="text-primary mr-0 font-size-24 mdi mdi-account-multiple"></i>
 							</div>
 							<div>
-								<p class="text-mute mt-20 mb-0 font-size-16">Sold Cars</p>
-								<h3 class="text-white mb-0 font-weight-500">3400 <small class="text-success"><i class="fa fa-caret-up"></i> +2.5%</small></h3>
+								<p class="text-mute mt-20 mb-0 font-size-16">Total Employee </p>
+								<h3 class="text-white mb-0 font-weight-500">{{$count_employee}} <small class="text-success">
+									<i class="fa fa-caret-up"></i></small></h3>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<div class="col-xl-2 col-6">
+					<div class="box overflow-hidden pull-up">
+						<div class="box-body">							
+							<div class="icon bg-warning-light rounded w-60 h-60">
+								<i class="text-warning mr-0 font-size-24 mdi mdi-money"></i>
+							</div>
+							<div>
+								<p class="text-mute mt-20 mb-0 font-size-16"> Student Fee </p>
+								<h3 class="text-white mb-0 font-weight-500">{{$stuednt_fee}} tk<small class="text-success">
+									<i class="fa fa-caret-up"></i></small></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
 				<div class="col-xl-2 col-6">
 					<div class="box overflow-hidden pull-up">
 						<div class="box-body">							
@@ -44,8 +77,8 @@
 								<i class="text-info mr-0 font-size-24 mdi mdi-sale"></i>
 							</div>
 							<div>
-								<p class="text-mute mt-20 mb-0 font-size-16">Sales Lost</p>
-								<h3 class="text-white mb-0 font-weight-500">$1,250 <small class="text-danger"><i class="fa fa-caret-down"></i> -0.5%</small></h3>
+								<p class="text-mute mt-20 mb-0 font-size-16">Employee Salary Cost</p>
+								<h3 class="text-white mb-0 font-weight-500">{{$count_employee_salary}} tk <small class="text-danger"><i class="fa fa-caret-down"></i></small></h3>
 							</div>
 						</div>
 					</div>
@@ -57,25 +90,13 @@
 								<i class="text-danger mr-0 font-size-24 mdi mdi-phone-incoming"></i>
 							</div>
 							<div>
-								<p class="text-mute mt-20 mb-0 font-size-16">Inbound Call</p>
-								<h3 class="text-white mb-0 font-weight-500">1,460 <small class="text-danger"><i class="fa fa-caret-up"></i> -1.5%</small></h3>
+								<p class="text-mute mt-20 mb-0 font-size-16">Others Cost</p>
+								<h3 class="text-white mb-0 font-weight-500">{{$count_other_cost}} tk <small class="text-danger"><i class="fa fa-caret-up"></i> </small></h3>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2 col-6">
-					<div class="box overflow-hidden pull-up">
-						<div class="box-body">							
-							<div class="icon bg-success-light rounded w-60 h-60">
-								<i class="text-success mr-0 font-size-24 mdi mdi-phone-outgoing"></i>
-							</div>
-							<div>
-								<p class="text-mute mt-20 mb-0 font-size-16">Outbound Call</p>
-								<h3 class="text-white mb-0 font-weight-500">1,700 <small class="text-success"><i class="fa fa-caret-up"></i> +0.5%</small></h3>
-							</div>
-						</div>
-					</div>
-				</div>
+			
 				<div class="col-xl-2 col-6">
 					<div class="box overflow-hidden pull-up">
 						<div class="box-body">							
@@ -83,8 +104,8 @@
 								<i class="text-white mr-0 font-size-24 mdi mdi-chart-line"></i>
 							</div>
 							<div>
-								<p class="text-mute mt-20 mb-0 font-size-16">Total Revune</p>
-								<h3 class="text-white mb-0 font-weight-500">$4,500k <small class="text-success"><i class="fa fa-caret-up"></i> +2.5%</small></h3>
+								<p class="text-mute mt-20 mb-0 font-size-16"> (Yearly/Monthly) Profit</p>
+								<h3 class="text-white mb-0 font-weight-500">{{$total_profit}} tk <small class="text-success"><i class="fa fa-caret-up"></i> </small></h3>
 							</div>
 						</div>
 					</div>
@@ -177,77 +198,77 @@
 
 
 
-				<div class="col-xxxl-5 col-xl-6 col-12">
-					<div class="box overflow-hidden">
-						<div class="box-body p-0">
-							<div class="row no-gutters">
-								<div class="col-md-6 col-12">
-									<div class="box no-shadow mb-0 rounded-0">
-										<div class="box-header no-border">
-											<h4 class="box-title mb-0">
-												Last Posts
-											</h4>
-										</div>
-										<div class="box-body p-0">
-											<div class="media-list media-list-hover">
-											<a class="media media-single hover-white" href="#">
-											  <div class="media-body">
-												<h5>Meet Craftwork. Thoroghly Handpicked UI Freebies</h5>
-											  </div>
-											</a>
-											<a class="media media-single hover-white" href="#">
-											  <div class="media-body">
-												<h5>Cook Design Right!</h5>
-											  </div>
-											</a>
-											<a class="media media-single hover-white" href="#">
-											  <div class="media-body">
-												<h5>5 Reasons to Start Own Bussines</h5>
-											  </div>
-											</a>
-											<a class="media media-single hover-white" href="#">
-											  <div class="media-body">
-												<h5>How to Make Interface</h5>
-											  </div>
-											</a>
-											<a class="media media-single hover-white" href="#">
-											  <div class="media-body">
-												<h5>Show Me Your Design</h5>
-											  </div>
-											</a>
-											<a class="media media-single hover-white" href="#">
-											  <div class="media-body">
-												<h5>She gave my mother such a turn, that I have always bee...</h5>
-											  </div>
-											</a>
-										  </div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6 col-12">
-									<div class="box no-shadow mb-0 bg-img rounded-0" data-overlay="5" style="background-image: url(../images/gallery/landscape7.jpg)">
-										<div class="box-header no-border">
-											<h4 class="box-title mb-0">
-												<span class="avatar avatar-lg bg-success">DK</span>
-											</h4>
-											<ul class="box-controls">
-												<li><a href="javascript:void(0)"><i class="ti-reload text-white"></i></a></li>
-											</ul>
-										</div>
-										<div class="box-body">
-											<div class="text-right mt-100 pt-20">
-												<h3 class="text-white"><small class="mr-10"><i class="fa fa-commenting"></i></small> 3</h3>
-												<h2 class="text-white"><small class="mr-10"><i class="fa fa-heart"></i></small> 23</h2>
-												<h1 class="text-white"><small class="mr-10"><i class="fa fa-eye"></i></small> 189</h1>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+<div class="col-xxxl-5 col-xl-6 col-12">
+<div class="box overflow-hidden">
+<div class="box-body p-0">
+	<div class="row no-gutters">
+		<div class="col-md-6 col-12">
+			<div class="box no-shadow mb-0 rounded-0">
+				<div class="box-header no-border">
+					<h4 class="box-title mb-0">
+						Last Posts
+					</h4>
+				</div>
+				<div class="box-body p-0">
+					<div class="media-list media-list-hover">
+					<a class="media media-single hover-white" href="#">
+					  <div class="media-body">
+						<h5>Meet Craftwork. Thoroghly Handpicked UI Freebies</h5>
+					  </div>
+					</a>
+					<a class="media media-single hover-white" href="#">
+					  <div class="media-body">
+						<h5>Cook Design Right!</h5>
+					  </div>
+					</a>
+					<a class="media media-single hover-white" href="#">
+					  <div class="media-body">
+						<h5>5 Reasons to Start Own Bussines</h5>
+					  </div>
+					</a>
+					<a class="media media-single hover-white" href="#">
+					  <div class="media-body">
+						<h5>How to Make Interface</h5>
+					  </div>
+					</a>
+					<a class="media media-single hover-white" href="#">
+					  <div class="media-body">
+						<h5>Show Me Your Design</h5>
+					  </div>
+					</a>
+					<a class="media media-single hover-white" href="#">
+					  <div class="media-body">
+						<h5>She gave my mother such a turn, that I have always bee...</h5>
+					  </div>
+					</a>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-12">
+			<div class="box no-shadow mb-0 bg-img rounded-0" data-overlay="5" style="background-image: url(../images/gallery/landscape7.jpg)">
+				<div class="box-header no-border">
+					<h4 class="box-title mb-0">
+						<span class="avatar avatar-lg bg-success">DK</span>
+					</h4>
+					<ul class="box-controls">
+						<li><a href="javascript:void(0)"><i class="ti-reload text-white"></i></a></li>
+					</ul>
+				</div>
+				<div class="box-body">
+					<div class="text-right mt-100 pt-20">
+						<h3 class="text-white"><small class="mr-10"><i class="fa fa-commenting"></i></small> 3</h3>
+						<h2 class="text-white"><small class="mr-10"><i class="fa fa-heart"></i></small> 23</h2>
+						<h1 class="text-white"><small class="mr-10"><i class="fa fa-eye"></i></small> 189</h1>
 					</div>
 				</div>
-				
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
 				
 
 
