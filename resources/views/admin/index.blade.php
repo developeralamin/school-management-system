@@ -4,9 +4,9 @@
 
 @php
 
-  $count_student = DB::table('users')->where('usertype','Student')->count();
+  $count_student  = DB::table('users')->where('usertype','Student')->count();
   $count_employee = DB::table('users')->where('usertype','Employee')->count();
-  $stuednt_fee = DB::table('account_student_fees')->sum('amount');
+  $stuednt_fee    = DB::table('account_student_fees')->sum('amount');
 
   $count_employee_salary = DB::table('employee_account_salaries')->sum('amount');
   $count_other_cost = DB::table('other_costs')->sum('amount');
@@ -111,11 +111,11 @@
 					</div>
 				</div>
 				
-				{{-- <div class="col-xl-6 col-12">
+				<div class="col-xl-12 col-12">
 					<div class="box">
 						<div class="box-header">
 							<h4 class="box-title">
-								Earning Summary
+								 System Overview
 							</h4>
 						</div>
 						<div class="box-body py-0">
@@ -156,7 +156,7 @@
 					</div>
 				</div>
 
-				<div class="col-xl-6 col-12">
+				{{-- <div class="col-xl-6 col-12">
 					<div class="box bg-info bg-img" style="background-image: url(../images/gallery/bg-1.png)">
 						<div class="box-body text-center">							
 							<img src="../images/trophy.png" class="mt-50" alt="" />
@@ -200,7 +200,7 @@
 
 <div class="col-xxxl-5 col-xl-6 col-12">
 <div class="box overflow-hidden">
-<div class="box-body p-0">
+{{-- <div class="box-body p-0">
 	<div class="row no-gutters">
 		<div class="col-md-6 col-12">
 			<div class="box no-shadow mb-0 rounded-0">
@@ -265,7 +265,10 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> --}}
+
+      {{-- {!! $chart->container() !!} --}}
+
 </div>
 </div>
 
@@ -280,4 +283,10 @@
   </div>
 
 
+  @endsection
+
+  @section('footer_js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.7/c3.min.js"></script>
+{{-- {!! $chart->script() !!} --}}
   @endsection

@@ -152,5 +152,7 @@
 
 </script>
 	
+@yield('footer_js')
+
 </body>
 </html>
