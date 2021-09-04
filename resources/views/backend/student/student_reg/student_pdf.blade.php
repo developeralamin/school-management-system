@@ -68,7 +68,7 @@
 
     <tr>
     <td>3</td>
-    <td><b>Student Role</b></td>
+    <td><b>Student Roll</b></td>
     <td>{{ $details->roll }}</td>
   </tr>
 

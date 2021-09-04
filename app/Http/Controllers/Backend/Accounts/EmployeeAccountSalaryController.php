@@ -119,7 +119,7 @@ class EmployeeAccountSalaryController extends Controller
     		'alert-type' => 'success'
     	);
 
-    	return redirect()->route('empoyee.account.fee')->with($notification);
+    	return redirect()->route('employee.account.fee')->with($notification);
     	}
 
     	else{

@@ -56,7 +56,7 @@
 
 @foreach($allData as $value)
   <tr>
-    <td width="50%">{{ date('d-m-Y',strtotime($value->date)) }}</td>
+    <td width="50%">{{ date('Y-m-d',strtotime($value->date)) }}</td>
     <td width="50%">{{ $value->attendace_status }}</td>
    
   </tr>

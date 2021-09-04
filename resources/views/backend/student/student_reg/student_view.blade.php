@@ -94,8 +94,10 @@
 				<th>Year</th>
 				<th>Class</th>
 				<th>Image</th>
-			@if(Auth::user()->role == 'Admin')	
-				<th>Code</th>
+			@if(Auth::user()->role == 'Admin')
+			<th>Code</th>
+			@else	
+				
 		    @endif		
 				<th width="25%">Action</th>
 				 
@@ -107,7 +109,7 @@
 				<td>{{ $key+1 }}</td>
 				<td>{{ $value['student']['name'] }}</td>
 				<td>{{ $value['student']['id_no'] }}</td>
-				<td></td>
+				<td>{{ $value->roll }}</td>
 				<td>{{ $value['student_year']['name'] }}</td>
 				<td>{{ $value['student_classes']['name'] }}</td>
 				<td>
@@ -157,14 +159,18 @@
 				<td>{{ $key+1 }}</td>
 				<td>{{ $value['student']['name'] }}</td>
 				<td>{{ $value['student']['id_no'] }}</td>
-				<td></td>
+				<td>{{ $value->roll }}</td>
 				<td>{{ $value['student_year']['name'] }}</td>
 				<td>{{ $value['student_classes']['name'] }}</td>
 				<td>
 	 <img src="{{ (!empty($value['student']['image']))? url('uploads/student_image/'.$value['student']['image']):url('uploads/no_image.jpg') }}" style="width: 60px; width: 60px;"> 
+
 				</td>
+				@if(Auth::user()->role == 'Admin')	
 				<td>{{ $value['student']['code'] }}</td>
+				@endif
 				<td>
+
 <a href="{{ route('student.reg.edit',$value->student_id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
 
 <a href="{{ route('student.promotion',$value->student_id) }}" class="btn btn-danger" id=""><i class="fa fa-check"></i></a>

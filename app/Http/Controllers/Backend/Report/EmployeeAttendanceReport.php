@@ -35,12 +35,12 @@ class EmployeeAttendanceReport extends Controller
     		$where[] = ['employee_id',$employee_id];
     	}
 
-    	 $date = date('Y-m',strtotime($request->date));
+    	 $date = date('Y-m-d',strtotime($request->date));
     	 if ($date !='') {
     	 	$where[] = ['date','like',$date.'%'];
     	 }
 
-    $singleattendance = EmployeeAttendance::with(['user'])->where($where)->get();	 
+$singleattendance = EmployeeAttendance::with(['user'])->where($where)->get();	 
     if ($singleattendance == true) {
     	$this->data['allData'] =  EmployeeAttendance::with(['user'])->where($where)->get();
 
@@ -49,7 +49,7 @@ class EmployeeAttendanceReport extends Controller
 
     	$this->data['leaves'] =EmployeeAttendance::with(['user'])->where($where)->where('attendace_status','Leave')->get()->count();
         
-       $this->data['month'] = date('m-Y',strtotime($request->date));
+       $this->data['month'] = date('Y-m-d',strtotime($request->date));
 
 $pdf = PDF::loadView('backend.reports.attend_report.attend_report_pdf', $this->data);
 	$pdf->SetProtection(['copy', 'print'], '', 'pass');
