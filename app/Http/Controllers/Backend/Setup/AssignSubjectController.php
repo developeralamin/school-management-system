@@ -23,7 +23,7 @@ class AssignSubjectController extends Controller
     // End Method
     
 
-    public function AssignSubjectAdd($value='')
+    public function AssignSubjectAdd()
      {
      	 $this->data['classes']           = StudentClass::all();
     	 $this->data['subjects']           = SchoolSubject::all();
